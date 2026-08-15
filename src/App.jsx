@@ -111,35 +111,21 @@ function LogoMark({ size = 36 }) {
 }
 
 /* ----------------------------------------------------------------
-   Concept Frame — wireframe-style mockup for non-client examples
+   Concept Frame — stock-photo mockup for non-client examples
 ---------------------------------------------------------------- */
-function ConceptFrame({ label, variant = 'home' }) {
+function ConceptFrame({ src, alt, label }) {
   return (
     <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-[#0d0b1a] h-40">
-      <div className="flex items-center gap-1.5 px-3 py-2 bg-white/5 border-b border-white/10">
+      <div className="absolute top-0 left-0 right-0 z-10 flex items-center gap-1.5 px-3 py-2 bg-black/30 backdrop-blur-sm border-b border-white/10">
         <span className="h-2 w-2 rounded-full bg-red-400/60" />
         <span className="h-2 w-2 rounded-full bg-yellow-400/60" />
         <span className="h-2 w-2 rounded-full bg-emerald-400/60" />
         {label && (
-          <span className="ml-2 font-mono text-[9px] text-white/35 truncate tracking-wide">{label}</span>
+          <span className="ml-2 font-mono text-[9px] text-white/50 truncate tracking-wide">{label}</span>
         )}
       </div>
-      <div className="p-3">
-        <div className="h-3 w-2/3 rounded bg-white/15 mb-2" />
-        <div className="h-2 w-1/2 rounded bg-white/8 mb-3" />
-        {variant === 'home' ? (
-          <div className="grid grid-cols-3 gap-2">
-            <div className="h-14 rounded-lg bg-primary/20 border border-primary/25" />
-            <div className="h-14 rounded-lg bg-white/5 border border-white/10" />
-            <div className="h-14 rounded-lg bg-white/5 border border-white/10" />
-          </div>
-        ) : (
-          <div className="grid grid-cols-2 gap-2">
-            <div className="h-14 rounded-lg bg-white/5 border border-white/10" />
-            <div className="h-14 rounded-lg bg-primary/20 border border-primary/25" />
-          </div>
-        )}
-      </div>
+      <img src={src} alt={alt} loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0d0b1a]/60 via-transparent to-[#0d0b1a]/30" />
     </div>
   )
 }
@@ -1358,8 +1344,16 @@ function Portfolio() {
               </span>
             </div>
             <div className="grid grid-cols-2 gap-3 mb-5">
-              <ConceptFrame label="home" variant="home" />
-              <ConceptFrame label="shop" variant="shop" />
+              <ConceptFrame
+                src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=70"
+                alt="Concept homepage mockup — boutique retail interior"
+                label="home"
+              />
+              <ConceptFrame
+                src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?auto=format&fit=crop&w=800&q=70"
+                alt="Concept shop page mockup — boutique retail interior"
+                label="shop"
+              />
             </div>
             <p className="text-muted text-[15px] leading-relaxed mb-4">
               A concept build showing our approach for a local service business — fast-loading homepage, clear calls to action, and a shop flow designed to convert browsers into orders.
