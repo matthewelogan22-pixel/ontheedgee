@@ -111,11 +111,11 @@ function LogoMark({ size = 36 }) {
 }
 
 /* ----------------------------------------------------------------
-   Browser Frame — wraps real site screenshots for the portfolio
+   Concept Frame — wireframe-style mockup for non-client examples
 ---------------------------------------------------------------- */
-function BrowserFrame({ src, alt, label, className = '' }) {
+function ConceptFrame({ label, variant = 'home' }) {
   return (
-    <div className={`relative rounded-2xl overflow-hidden border border-white/10 bg-[#0d0b1a] ${className}`}>
+    <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-[#0d0b1a] h-40">
       <div className="flex items-center gap-1.5 px-3 py-2 bg-white/5 border-b border-white/10">
         <span className="h-2 w-2 rounded-full bg-red-400/60" />
         <span className="h-2 w-2 rounded-full bg-yellow-400/60" />
@@ -124,8 +124,21 @@ function BrowserFrame({ src, alt, label, className = '' }) {
           <span className="ml-2 font-mono text-[9px] text-white/35 truncate tracking-wide">{label}</span>
         )}
       </div>
-      <div className="max-h-64 overflow-hidden">
-        <img src={src} alt={alt} loading="lazy" className="w-full h-auto object-cover object-top" />
+      <div className="p-3">
+        <div className="h-3 w-2/3 rounded bg-white/15 mb-2" />
+        <div className="h-2 w-1/2 rounded bg-white/8 mb-3" />
+        {variant === 'home' ? (
+          <div className="grid grid-cols-3 gap-2">
+            <div className="h-14 rounded-lg bg-primary/20 border border-primary/25" />
+            <div className="h-14 rounded-lg bg-white/5 border border-white/10" />
+            <div className="h-14 rounded-lg bg-white/5 border border-white/10" />
+          </div>
+        ) : (
+          <div className="grid grid-cols-2 gap-2">
+            <div className="h-14 rounded-lg bg-white/5 border border-white/10" />
+            <div className="h-14 rounded-lg bg-primary/20 border border-primary/25" />
+          </div>
+        )}
       </div>
     </div>
   )
@@ -1330,29 +1343,29 @@ function Portfolio() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* Flower Hunt — wide card, two screenshots */}
+          {/* Concept build — wireframe mockup, not a real client */}
           <article
             style={reveal(0).style}
             className={`work-card lg:col-span-2 relative bg-surface border border-divider rounded-5xl p-6 sm:p-8 hover:border-primary/40 shadow-sm hover:shadow-xl hover:shadow-primary/10 ${reveal(0).className}`}
           >
             <div className="flex items-start justify-between mb-5">
               <div>
-                <p className="font-mono text-[10px] uppercase tracking-widest text-primary mb-1">Website Design · Custom Build</p>
-                <h3 className="font-display font-bold text-2xl text-ink">Petal &amp; Co. — Melbourne Florist</h3>
+                <p className="font-mono text-[10px] uppercase tracking-widest text-primary mb-1">Concept Build · Boutique Retail</p>
+                <h3 className="font-display font-bold text-2xl text-ink">Harlow &amp; Fern <span className="text-muted font-normal text-lg">(concept)</span></h3>
               </div>
               <span className="hidden sm:flex h-10 w-10 rounded-full bg-primary/10 items-center justify-center flex-shrink-0">
                 <ArrowUpRight className="h-4 w-4 text-primary" />
               </span>
             </div>
             <div className="grid grid-cols-2 gap-3 mb-5">
-              <BrowserFrame src="/portfolio/flower-hunt-home.jpg" alt="Petal & Co. homepage" label="petalandco.com.au" />
-              <BrowserFrame src="/portfolio/flower-hunt-shop.jpg" alt="Petal & Co. shop page" label="petalandco.com.au/shop" />
+              <ConceptFrame label="home" variant="home" />
+              <ConceptFrame label="shop" variant="shop" />
             </div>
             <p className="text-muted text-[15px] leading-relaxed mb-4">
-              A full rebrand and rebuild for a Melbourne florist — same-day delivery messaging, verified reviews, and a shop experience designed to convert browsers into orders.
+              A concept build showing our approach for a local service business — fast-loading homepage, clear calls to action, and a shop flow designed to convert browsers into orders.
             </p>
             <div className="flex flex-wrap gap-2">
-              {['Custom Design', 'React + Vite', 'Stripe Checkout', 'Local SEO'].map((tag) => (
+              {['Custom Design', 'React + Vite', 'Concept'].map((tag) => (
                 <span key={tag} className="font-mono text-[10px] uppercase tracking-widest text-primary bg-primary/10 border border-primary/20 px-2.5 py-1 rounded-full">
                   {tag}
                 </span>
