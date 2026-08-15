@@ -1356,7 +1356,7 @@ function Portfolio() {
               />
             </div>
             <p className="text-muted text-[15px] leading-relaxed mb-4">
-              A concept build showing our approach for an apparel boutique — fast-loading homepage, clear calls to action, and a shop flow designed to convert browsers into orders.
+              A concept build exploring our design approach for an apparel boutique — considered layout, clean typography, and a shop experience that feels as polished as the product.
             </p>
             <div className="flex flex-wrap gap-2">
               {['Custom Design', 'React + Vite', 'Concept'].map((tag) => (
