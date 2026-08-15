@@ -1337,7 +1337,7 @@ function Portfolio() {
             <div className="flex items-start justify-between mb-5">
               <div>
                 <p className="font-mono text-[10px] uppercase tracking-widest text-primary mb-1">Concept Build · Boutique Retail</p>
-                <h3 className="font-display font-bold text-2xl text-ink">Harlow &amp; Fern <span className="text-muted font-normal text-lg">(concept)</span></h3>
+                <h3 className="font-display font-bold text-2xl text-ink">Harlow &amp; Rowe <span className="text-muted font-normal text-lg">(concept)</span></h3>
               </div>
               <span className="hidden sm:flex h-10 w-10 rounded-full bg-primary/10 items-center justify-center flex-shrink-0">
                 <ArrowUpRight className="h-4 w-4 text-primary" />
@@ -1356,7 +1356,7 @@ function Portfolio() {
               />
             </div>
             <p className="text-muted text-[15px] leading-relaxed mb-4">
-              A concept build showing our approach for a local service business — fast-loading homepage, clear calls to action, and a shop flow designed to convert browsers into orders.
+              A concept build showing our approach for an apparel boutique — fast-loading homepage, clear calls to action, and a shop flow designed to convert browsers into orders.
             </p>
             <div className="flex flex-wrap gap-2">
               {['Custom Design', 'React + Vite', 'Concept'].map((tag) => (
