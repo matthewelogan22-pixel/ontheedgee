@@ -209,6 +209,22 @@
   .faq-item h3 { font-size: 1.02rem; margin: 0 0 0.5rem; font-weight: 700; display: flex; gap: 0.7rem; align-items: baseline; }
   .faq-item h3 .qm { color: var(--clay); font-family: "JetBrains Mono", monospace; font-size: 0.85rem; flex-shrink: 0; }
   .faq-item p { color: var(--ink-soft); font-size: 0.94rem; margin: 0 0 0 1.5rem; max-width: 62ch; }
+
+  /* trust bar (below hero) */
+  .trust-bar { background: var(--earth-raised); border-bottom: 1px solid var(--line-dark); }
+  .trust-bar-inner {
+    max-width: 1180px; margin: 0 auto; padding: 1rem 1.5rem;
+    display: flex; flex-wrap: wrap; gap: 1.6rem; justify-content: center;
+  }
+  .trust-bar-item { display: flex; align-items: center; gap: 0.55rem; color: rgba(255,255,255,0.75); font-size: 0.85rem; font-weight: 600; }
+  .trust-bar-item svg { flex-shrink: 0; color: var(--clay); }
+
+  /* compliance section */
+  .compliance { background: var(--paper-raised); border: 1px solid var(--line); border-radius: 20px; padding: 2.2rem; box-shadow: var(--shadow); }
+  .compliance-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 1.6rem; }
+  .compliance-item h3 { font-size: 0.98rem; margin: 0 0 0.4rem; font-weight: 700; font-family: Georgia, serif; }
+  .compliance-item p { color: var(--muted); font-size: 0.88rem; margin: 0; }
+  .compliance-item a { color: var(--moss-deep); }
 </style>
 </head>
 <body>
@@ -256,6 +272,15 @@
     </div>
   </div>
 </section>
+
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <span class="trust-bar-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg> Fully Insured</span>
+    <span class="trust-bar-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg> Free On-Site Quotes</span>
+    <span class="trust-bar-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg> Local to Mandurah</span>
+    <span class="trust-bar-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg> Retic Specialist</span>
+  </div>
+</div>
 
 <section>
   <div class="section-inner">
@@ -314,10 +339,34 @@
   </div>
 </section>
 
+<section>
+  <div class="section-inner">
+    <div class="compliance">
+      <span class="eyebrow">Standards</span>
+      <h2 class="section-title display">Set up so the water supply stays protected.</h2>
+      <p class="section-sub">Reticulation connected to mains water needs proper backflow prevention — it's part of doing the job right, not an optional extra.</p>
+      <div class="compliance-grid">
+        <div class="compliance-item">
+          <h3>Fully Insured</h3>
+          <p>Public liability cover for every job, residential or larger.</p>
+        </div>
+        <div class="compliance-item">
+          <h3>Backflow-Aware Installs</h3>
+          <p>Systems set up with proper backflow prevention per <a href="https://www.standards.org.au/standards-catalogue/sa-snz/publicsafety/me-018/as--nzs--3500-dot-1-2021" target="_blank" rel="noreferrer noopener">AS/NZS 3500.1</a>, the national plumbing standard.</p>
+        </div>
+        <div class="compliance-item">
+          <h3>Written Quotes</h3>
+          <p>A price on paper before anything is booked in — no verbal estimates.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="trust-strip">
   <div class="section-inner">
     <div class="section-head">
-      <span class="eyebrow">Why us</span>
+      <span class="eyebrow">How it works</span>
       <h2 class="section-title display" style="color:#fff">Reticulation done properly, not guessed.</h2>
     </div>
     <div class="trust-grid">

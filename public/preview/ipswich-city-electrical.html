@@ -312,6 +312,22 @@
   .faq-item h3 { font-size: 1.02rem; margin: 0 0 0.5rem; font-weight: 700; display: flex; gap: 0.7rem; align-items: baseline; }
   .faq-item h3 .qm { color: var(--amber); font-family: "JetBrains Mono", monospace; font-size: 0.85rem; flex-shrink: 0; }
   .faq-item p { color: var(--ink-soft); font-size: 0.94rem; margin: 0 0 0 1.5rem; max-width: 62ch; }
+
+  /* trust bar (below hero) */
+  .trust-bar { background: var(--void-raised); border-bottom: 1px solid var(--line-dark); }
+  .trust-bar-inner {
+    max-width: 1180px; margin: 0 auto; padding: 1rem 1.5rem;
+    display: flex; flex-wrap: wrap; gap: 1.6rem; justify-content: center;
+  }
+  .trust-bar-item { display: flex; align-items: center; gap: 0.55rem; color: rgba(255,255,255,0.75); font-size: 0.85rem; font-weight: 600; }
+  .trust-bar-item svg { flex-shrink: 0; color: var(--amber); }
+
+  /* compliance section */
+  .compliance { background: var(--paper-raised); border: 1px solid var(--line); border-radius: 20px; padding: 2.2rem; box-shadow: var(--shadow); }
+  .compliance-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 1.6rem; }
+  .compliance-item h3 { font-size: 0.98rem; margin: 0 0 0.4rem; font-weight: 700; }
+  .compliance-item p { color: var(--muted); font-size: 0.88rem; margin: 0; }
+  .compliance-item a { color: var(--copper); }
 </style>
 </head>
 <body>
@@ -369,6 +385,15 @@
     </div>
   </div>
 </section>
+
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <span class="trust-bar-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg> Licensed Electrical Contractor</span>
+    <span class="trust-bar-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg> Fully Insured</span>
+    <span class="trust-bar-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg> AS/NZS 3000 Compliant</span>
+    <span class="trust-bar-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg> Same-Day Callouts</span>
+  </div>
+</div>
 
 <section>
   <div class="section-inner">
@@ -448,6 +473,30 @@
   </div>
 </section>
 
+<section>
+  <div class="section-inner">
+    <div class="compliance">
+      <span class="eyebrow">Standards</span>
+      <h2 class="section-title display">Every job meets AS/NZS 3000.</h2>
+      <p class="section-sub">The Australian standard for safe electrical installations — that's the baseline, not the goal, on every job across Ipswich.</p>
+      <div class="compliance-grid">
+        <div class="compliance-item">
+          <h3>Licensed Electrical Contractor</h3>
+          <p>QLD-licensed for residential and commercial electrical work.</p>
+        </div>
+        <div class="compliance-item">
+          <h3>Fully Insured</h3>
+          <p>Public liability and work cover compliant for every job.</p>
+        </div>
+        <div class="compliance-item">
+          <h3><a href="https://www.standards.org.au/flagship-projects/wiring-rules" target="_blank" rel="noreferrer noopener">AS/NZS 3000 Wiring Rules</a></h3>
+          <p>The Australian standard for safe electrical installations — every job complies.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="trust-strip">
   <div class="section-inner">
     <div class="section-head">
@@ -455,9 +504,9 @@
       <h2 class="section-title display" style="color:#fff">No callout surprises.</h2>
     </div>
     <div class="trust-grid">
-      <div class="trust-item"><div class="num">01</div><div class="t">Upfront pricing</div><div class="d">You know the cost before the work starts, not after.</div></div>
-      <div class="trust-item"><div class="num">02</div><div class="t">City-wide coverage</div><div class="d">Not limited to one corner of Ipswich — Shane covers the whole city.</div></div>
-      <div class="trust-item"><div class="num">03</div><div class="t">Licensed work</div><div class="d">Compliant electrical work, every time, no shortcuts.</div></div>
+      <div class="trust-item"><div class="num">01</div><div class="t">Written quote first</div><div class="d">Shane comes to the property, assesses the job, and gives you a price in writing before any work starts.</div></div>
+      <div class="trust-item"><div class="num">02</div><div class="t">City-wide coverage</div><div class="d">Not limited to one corner of Ipswich — Shane covers the whole city, not just a home patch.</div></div>
+      <div class="trust-item"><div class="num">03</div><div class="t">Left as clean as it started</div><div class="d">Site cleaned up after every job — no offcuts, no mess left behind.</div></div>
     </div>
   </div>
 </section>
