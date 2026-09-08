@@ -15,9 +15,9 @@
     --muted: #7c808c;
     --line: #d7dae0;
     --line-dark: #2a2e38;
-    --amber: #f2a93b;
+    --amber: #14b8c4;
     --amber-ink: #14161c;
-    --copper: #c1622b;
+    --copper: #0d7377;
     --safe: #4fae6a;
     --shadow: 0 1px 2px rgba(18,21,27,0.04), 0 10px 28px -14px rgba(18,21,27,0.22);
   }
@@ -238,18 +238,19 @@
 
   /* trust strip */
   .trust-strip {
-    background: var(--void);
-    color: #fff;
+    background: var(--paper);
+    color: var(--ink);
   }
   .trust-grid {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-    gap: 1px; background: var(--line-dark);
-    border: 1px solid var(--line-dark); border-radius: 16px; overflow: hidden;
+    gap: 1px; background: var(--line);
+    border: 1px solid var(--line); border-radius: 16px; overflow: hidden;
+    box-shadow: var(--shadow);
   }
-  .trust-item { background: var(--void); padding: 1.6rem 1.4rem; }
-  .trust-item .num { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 0.7rem; color: var(--amber); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.6rem; }
-  .trust-item .t { font-weight: 700; font-size: 1.05rem; margin-bottom: 0.35rem; }
-  .trust-item .d { color: rgba(255,255,255,0.5); font-size: 0.88rem; }
+  .trust-item { background: var(--paper-raised); padding: 1.6rem 1.4rem; }
+  .trust-item .num { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 0.7rem; color: var(--copper); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.6rem; }
+  .trust-item .t { font-weight: 700; font-size: 1.05rem; margin-bottom: 0.35rem; color: var(--ink); }
+  .trust-item .d { color: var(--muted); font-size: 0.88rem; }
 
   /* service area */
   .area-tags { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-top: 1.2rem; }
@@ -502,7 +503,7 @@
   <div class="section-inner">
     <div class="section-head">
       <span class="eyebrow">How it works</span>
-      <h2 class="section-title display" style="color:#fff">No callout surprises.</h2>
+      <h2 class="section-title display">No callout surprises.</h2>
     </div>
     <div class="trust-grid">
       <div class="trust-item"><div class="num">01</div><div class="t">Written quote first</div><div class="d">Ace comes to the property, assesses the job, and gives you a price in writing before any work starts. No call-out fee just for a quote.</div></div>
