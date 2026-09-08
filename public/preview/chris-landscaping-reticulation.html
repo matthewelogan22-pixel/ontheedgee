@@ -225,6 +225,50 @@
   .compliance-item h3 { font-size: 0.98rem; margin: 0 0 0.4rem; font-weight: 700; font-family: Georgia, serif; }
   .compliance-item p { color: var(--muted); font-size: 0.88rem; margin: 0; }
   .compliance-item a { color: var(--moss-deep); }
+
+  /* get a quote */
+  .quote-band {
+    background: var(--earth);
+    color: #fff;
+    border-radius: 22px;
+    padding: 2.8rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .quote-band::before {
+    content: "";
+    position: absolute; top: -30%; right: -10%;
+    width: 420px; height: 420px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(185,112,62,0.2), transparent 70%);
+    pointer-events: none;
+  }
+  .quote-head { position: relative; max-width: 46ch; margin-bottom: 2.2rem; }
+  .quote-head .eyebrow { color: var(--sand); }
+  .quote-head .eyebrow::before { background: var(--clay); box-shadow: 0 0 0 4px rgba(185,112,62,0.2); }
+  .quote-head h2 { font-size: clamp(1.6rem, 3vw, 2.1rem); margin: 0 0 0.6rem; }
+  .quote-head p { color: rgba(255,255,255,0.6); font-size: 1.02rem; margin: 0; }
+  .quote-steps { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 2.2rem; }
+  @media (max-width: 780px) { .quote-steps { grid-template-columns: 1fr; } }
+  .quote-step { border-left: 2px solid rgba(255,255,255,0.15); padding-left: 1.1rem; }
+  .quote-step .n { font-family: "JetBrains Mono", monospace; font-size: 0.7rem; color: var(--sand); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; }
+  .quote-step h3 { font-size: 1.02rem; margin: 0 0 0.4rem; }
+  .quote-step p { color: rgba(255,255,255,0.55); font-size: 0.88rem; margin: 0; }
+  .quote-actions { position: relative; display: flex; flex-wrap: wrap; gap: 0.8rem; }
+
+  /* reviews placeholder */
+  .reviews-badge { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.8rem; flex-wrap: wrap; }
+  .reviews-stars { display: flex; gap: 0.15rem; color: var(--clay); }
+  .reviews-score { font-family: Georgia, serif; font-weight: 700; font-size: 1.3rem; }
+  .reviews-note { font-family: "JetBrains Mono", monospace; font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+  .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.1rem; }
+  .review-card {
+    border: 1px dashed var(--line); border-radius: 16px;
+    padding: 1.4rem; background: var(--paper-raised);
+  }
+  .review-card .stars { display: flex; gap: 0.1rem; color: var(--line); margin-bottom: 0.8rem; }
+  .review-card .placeholder-line { height: 9px; border-radius: 5px; background: var(--line); margin-bottom: 0.5rem; }
+  .review-card .placeholder-line.short { width: 60%; }
+  .review-card .tag { display: inline-block; margin-top: 0.8rem; font-family: "JetBrains Mono", monospace; font-size: 0.68rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
 </style>
 </head>
 <body>
@@ -294,6 +338,7 @@
         <h2 class="section-title display">Reticulation is the job, not a side line.</h2>
         <p>Chris' Landscaping &amp; Reticulation works across Mandurah, with irrigation systems as the core of the business — not something bolted on by a mowing crew. Zoned properly, the whole yard actually gets watered, not just the bits nearest the tap.</p>
         <p>Garden design, turf, and paving round out the rest — all quoted on-site before anything is booked in.</p>
+        <p>Most reticulation jobs are diagnosed on the spot — a dry patch is rarely random, it's almost always a zoning or head-placement problem with a clear fix.</p>
         <div class="about-stats">
           <div><strong>Mandurah</strong><span>Based &amp; local</span></div>
           <div><strong>Free quotes</strong><span>On-site, no cost</span></div>
@@ -316,6 +361,38 @@
       <div class="bed-card"><div class="code">Zone / 02</div><h3>Reticulation repairs</h3><p>Broken sprinklers, blocked lines, and controller issues sorted fast.</p></div>
       <div class="bed-card"><div class="code">Zone / 03</div><h3>Turf &amp; lawns</h3><p>Roll-on turf supply and laying, plus lawn renovation for tired yards.</p></div>
       <div class="bed-card"><div class="code">Zone / 04</div><h3>Garden design &amp; planting</h3><p>Beds designed around what actually survives a Mandurah summer.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-inner">
+    <div class="quote-band">
+      <div class="quote-head">
+        <span class="eyebrow">Get a quote</span>
+        <h2 class="display">Getting a price is easy.</h2>
+        <p>No forms to fill out, no waiting days for a call back. Reach out and Chris takes it from there.</p>
+      </div>
+      <div class="quote-steps">
+        <div class="quote-step">
+          <div class="n">Step 1</div>
+          <h3>Get in touch</h3>
+          <p>Email a few details about the yard or the system you've got, or send some photos.</p>
+        </div>
+        <div class="quote-step">
+          <div class="n">Step 2</div>
+          <h3>Chris visits the yard</h3>
+          <p>A free on-site look at the yard and any existing reticulation before anything is priced.</p>
+        </div>
+        <div class="quote-step">
+          <div class="n">Step 3</div>
+          <h3>Written price</h3>
+          <p>You get a firm number before any work starts. No obligation.</p>
+        </div>
+      </div>
+      <div class="quote-actions">
+        <a class="btn-primary" href="mailto:chris.landscaping.reticulation@gmail.com">Get a quote &rarr;</a>
+      </div>
     </div>
   </div>
 </section>
@@ -358,6 +435,44 @@
           <h3>Written Quotes</h3>
           <p>A price on paper before anything is booked in — no verbal estimates.</p>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="eyebrow">Reputation</span>
+      <h2 class="section-title display">This is where the reviews go.</h2>
+      <p class="section-sub">Once the Google Business Profile is connected, real reviews pull in here automatically — this is just the layout, waiting to be filled.</p>
+    </div>
+    <div class="reviews-badge">
+      <span class="reviews-stars">★★★★★</span>
+      <span class="reviews-score">—</span>
+      <span class="reviews-note">Connect Google Reviews to populate</span>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <div class="placeholder-line"></div>
+        <div class="placeholder-line"></div>
+        <div class="placeholder-line short"></div>
+        <span class="tag">Example review slot</span>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <div class="placeholder-line"></div>
+        <div class="placeholder-line"></div>
+        <div class="placeholder-line short"></div>
+        <span class="tag">Example review slot</span>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <div class="placeholder-line"></div>
+        <div class="placeholder-line"></div>
+        <div class="placeholder-line short"></div>
+        <span class="tag">Example review slot</span>
       </div>
     </div>
   </div>
@@ -416,6 +531,22 @@
       <div class="faq-item">
         <h3><span class="qm">Q.</span> What areas do you service?</h3>
         <p>Mandurah and the surrounding suburbs — see the service area above. If you're just outside it, get in touch anyway.</p>
+      </div>
+      <div class="faq-item">
+        <h3><span class="qm">Q.</span> Do you work on bore-fed systems as well as mains?</h3>
+        <p>Yes — bore and mains-fed reticulation both, including the backflow prevention mains-connected systems need.</p>
+      </div>
+      <div class="faq-item">
+        <h3><span class="qm">Q.</span> How long does a reticulation install take?</h3>
+        <p>A standard residential system is usually a day. You'll get a timeframe with your quote once Chris has seen the yard.</p>
+      </div>
+      <div class="faq-item">
+        <h3><span class="qm">Q.</span> Is the work guaranteed?</h3>
+        <p>Yes — reticulation work is guaranteed against faults. If a zone stops working properly, Chris comes back and fixes it.</p>
+      </div>
+      <div class="faq-item">
+        <h3><span class="qm">Q.</span> Can you set up a controller I can run from my phone?</h3>
+        <p>Yes — smart controllers can be fitted as part of a new install or added to an existing system.</p>
       </div>
     </div>
   </div>

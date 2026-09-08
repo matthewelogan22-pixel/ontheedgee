@@ -329,6 +329,50 @@
   .compliance-item h3 { font-size: 0.98rem; margin: 0 0 0.4rem; font-weight: 700; }
   .compliance-item p { color: var(--muted); font-size: 0.88rem; margin: 0; }
   .compliance-item a { color: var(--copper); }
+
+  /* get a quote */
+  .quote-band {
+    background: var(--void);
+    color: #fff;
+    border-radius: 22px;
+    padding: 2.8rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .quote-band::before {
+    content: "";
+    position: absolute; top: -30%; right: -10%;
+    width: 420px; height: 420px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(20,184,196,0.18), transparent 70%);
+    pointer-events: none;
+  }
+  .quote-head { position: relative; max-width: 46ch; margin-bottom: 2.2rem; }
+  .quote-head .eyebrow { color: var(--amber); }
+  .quote-head .eyebrow::before { background: var(--amber); box-shadow: 0 0 0 4px rgba(20,184,196,0.18); }
+  .quote-head h2 { font-size: clamp(1.6rem, 3vw, 2.1rem); margin: 0 0 0.6rem; }
+  .quote-head p { color: rgba(255,255,255,0.6); font-size: 1.02rem; margin: 0; }
+  .quote-steps { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 2.2rem; }
+  @media (max-width: 780px) { .quote-steps { grid-template-columns: 1fr; } }
+  .quote-step { border-left: 2px solid rgba(255,255,255,0.15); padding-left: 1.1rem; }
+  .quote-step .n { font-family: "JetBrains Mono", monospace; font-size: 0.7rem; color: var(--amber); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; }
+  .quote-step h3 { font-size: 1.02rem; margin: 0 0 0.4rem; }
+  .quote-step p { color: rgba(255,255,255,0.55); font-size: 0.88rem; margin: 0; }
+  .quote-actions { position: relative; display: flex; flex-wrap: wrap; gap: 0.8rem; }
+
+  /* reviews placeholder */
+  .reviews-badge { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.8rem; flex-wrap: wrap; }
+  .reviews-stars { display: flex; gap: 0.15rem; color: var(--amber); }
+  .reviews-score { font-family: -apple-system, system-ui, sans-serif; font-weight: 800; font-size: 1.3rem; }
+  .reviews-note { font-family: "JetBrains Mono", monospace; font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+  .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.1rem; }
+  .review-card {
+    border: 1px dashed var(--line); border-radius: 16px;
+    padding: 1.4rem; background: var(--paper-raised);
+  }
+  .review-card .stars { display: flex; gap: 0.1rem; color: var(--line); margin-bottom: 0.8rem; }
+  .review-card .placeholder-line { height: 9px; border-radius: 5px; background: var(--line); margin-bottom: 0.5rem; }
+  .review-card .placeholder-line.short { width: 60%; }
+  .review-card .tag { display: inline-block; margin-top: 0.8rem; font-family: "JetBrains Mono", monospace; font-size: 0.68rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
 </style>
 </head>
 <body>
@@ -408,6 +452,7 @@
         <h2 class="section-title display">Run by Shane, covering the whole of Ipswich.</h2>
         <p>Ipswich City Electrical is a licensed electrical contractor taking on residential and commercial work across every corner of the city — not just one suburb or one type of job.</p>
         <p>Every job is quoted upfront and finished to current QLD electrical safety standards, from a single power point to a full switchboard replacement.</p>
+        <p>Whether it's a new estate in Springfield or an older home in Booval, Shane covers the wiring differences across Ipswich's mix of new and established housing.</p>
         <div class="about-stats">
           <div><strong>City-wide</strong><span>Full Ipswich coverage</span></div>
           <div><strong>Licensed</strong><span>QLD contractor</span></div>
@@ -457,6 +502,39 @@
 
 <section>
   <div class="section-inner">
+    <div class="quote-band">
+      <div class="quote-head">
+        <span class="eyebrow">Get a quote</span>
+        <h2 class="display">Getting a price is easy.</h2>
+        <p>No forms to fill out, no waiting days for a call back. Reach out and Shane takes it from there.</p>
+      </div>
+      <div class="quote-steps">
+        <div class="quote-step">
+          <div class="n">Step 1</div>
+          <h3>Get in touch</h3>
+          <p>Call or email — describe the job, or send a photo if it's easier.</p>
+        </div>
+        <div class="quote-step">
+          <div class="n">Step 2</div>
+          <h3>Shane assesses it</h3>
+          <p>Over the phone for simple jobs, on-site for anything bigger.</p>
+        </div>
+        <div class="quote-step">
+          <div class="n">Step 3</div>
+          <h3>Written price</h3>
+          <p>You get a firm number before any work starts. No obligation.</p>
+        </div>
+      </div>
+      <div class="quote-actions">
+        <a class="btn-primary" href="tel:+61438721203">Call 0438 721 203 &rarr;</a>
+        <a class="btn-ghost" href="mailto:shane@ipswichcityelectrical.com.au">Email instead</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-inner">
     <div class="section-head">
       <span class="eyebrow">The work</span>
       <h2 class="section-title display">What the job actually looks like.</h2>
@@ -493,6 +571,44 @@
           <h3><a href="https://www.standards.org.au/flagship-projects/wiring-rules" target="_blank" rel="noreferrer noopener">AS/NZS 3000 Wiring Rules</a></h3>
           <p>The Australian standard for safe electrical installations — every job complies.</p>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="eyebrow">Reputation</span>
+      <h2 class="section-title display">This is where the reviews go.</h2>
+      <p class="section-sub">Once this Google Business Profile is connected, real reviews pull in here automatically — this is just the layout, waiting to be filled.</p>
+    </div>
+    <div class="reviews-badge">
+      <span class="reviews-stars">★★★★★</span>
+      <span class="reviews-score">—</span>
+      <span class="reviews-note">Connect Google Reviews to populate</span>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <div class="placeholder-line"></div>
+        <div class="placeholder-line"></div>
+        <div class="placeholder-line short"></div>
+        <span class="tag">Example review slot</span>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <div class="placeholder-line"></div>
+        <div class="placeholder-line"></div>
+        <div class="placeholder-line short"></div>
+        <span class="tag">Example review slot</span>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <div class="placeholder-line"></div>
+        <div class="placeholder-line"></div>
+        <div class="placeholder-line short"></div>
+        <span class="tag">Example review slot</span>
       </div>
     </div>
   </div>
@@ -552,6 +668,22 @@
       <div class="faq-item">
         <h3><span class="qm">Q.</span> Do you cover the whole of Ipswich, or just certain suburbs?</h3>
         <p>The whole city — see the service area above. If you're just outside it, call and ask anyway.</p>
+      </div>
+      <div class="faq-item">
+        <h3><span class="qm">Q.</span> How quickly can you get here?</h3>
+        <p>Most callouts are same-day. For non-urgent work, Shane will give you a realistic window when you book.</p>
+      </div>
+      <div class="faq-item">
+        <h3><span class="qm">Q.</span> Do you charge a call-out fee just to quote?</h3>
+        <p>No. Quotes are free — you only pay once you've accepted a price and the work is booked in.</p>
+      </div>
+      <div class="faq-item">
+        <h3><span class="qm">Q.</span> Is the work guaranteed?</h3>
+        <p>Yes — every job is finished to AS/NZS 3000 and backed by workmanship warranty. If something's not right, Shane comes back and fixes it.</p>
+      </div>
+      <div class="faq-item">
+        <h3><span class="qm">Q.</span> Can you help with rental compliance and smoke alarms?</h3>
+        <p>Yes — safety switch and smoke alarm compliance checks for landlords and property managers across Ipswich.</p>
       </div>
     </div>
   </div>
