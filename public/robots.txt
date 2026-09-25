@@ -1,4 +1,10 @@
 User-agent: *
 Allow: /
 
+# /preview/* pages are spec builds carrying real businesses' names and contact
+# details, shared as direct links only. They are kept OUT of the search index via
+# an X-Robots-Tag: noindex header (see vercel.json), NOT via a Disallow rule here.
+# Do not add "Disallow: /preview/" — blocking the crawl would stop crawlers from
+# ever seeing the noindex header, which is what actually keeps them unindexed.
+
 Sitemap: https://ontheedge.app/sitemap.xml
