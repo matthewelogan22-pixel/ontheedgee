@@ -183,6 +183,101 @@
   .concept-badge:hover{transform:translateY(-2px);background:var(--granite-raised)}
   .concept-badge:active{transform:translateY(0) scale(.98)}
   .concept-badge b{color:#fff;font-weight:650}
+
+  :root{
+    --c-raised:var(--slate-raised); --c-sunk:var(--slate-sunk); --c-line:var(--line);
+    --c-linestrong:var(--line-strong); --c-ink:var(--ink); --c-inksoft:var(--ink-soft);
+    --c-muted:var(--muted); --c-accent:var(--rust); --c-accentglow:rgba(177,83,29,.20);
+    --c-dark:var(--granite); --c-darkline:var(--granite-line);
+    --c-rlg:var(--r-lg); --c-rmd:var(--r-md); --c-sh2:var(--sh-2);
+  }
+
+  /* ---------- reviews ---------- */
+  .revs{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s4)}
+  @media (max-width:900px){.revs{grid-template-columns:1fr}}
+  .rev{
+    background:var(--c-raised);border:1px solid var(--c-line);border-radius:var(--c-rlg);
+    padding:var(--s5);display:flex;flex-direction:column;gap:var(--s3);
+    transition:transform var(--t-enter) var(--ease),box-shadow var(--t-enter) var(--ease);
+  }
+  .rev:hover{transform:translateY(-2px);box-shadow:var(--c-sh2)}
+  .rev .stars{color:var(--c-accent);font-size:15px;letter-spacing:2px}
+  .rev .quote{margin:0;font-size:15px;color:var(--c-inksoft);font-style:italic}
+  .rev .who{margin:0;font-size:12.5px;color:var(--c-muted);font-weight:600}
+  .rev-empty{
+    border-style:dashed;background:transparent;align-items:flex-start;justify-content:center;
+  }
+  .rev-empty .quote{font-style:normal}
+
+  /* ---------- seasonal calendar ---------- */
+  .season{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--c-line);border-radius:var(--c-rlg);overflow:hidden;background:var(--c-raised)}
+  @media (max-width:900px){.season{grid-template-columns:1fr 1fr}}
+  @media (max-width:560px){.season{grid-template-columns:1fr}}
+  .season-col{padding:var(--s5);border-right:1px solid var(--c-line);transition:background-color var(--t-enter) var(--ease)}
+  .season-col:last-child{border-right:none}
+  .season-col:hover{background:var(--c-sunk)}
+  @media (max-width:900px){.season-col{border-bottom:1px solid var(--c-line)}}
+  .season-col .mo{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--c-accent);font-weight:750;margin-bottom:var(--s2)}
+  .season-col h4{margin:0 0 var(--s2);font-size:16px;font-weight:700;letter-spacing:-.01em}
+  .season-col p{margin:0;font-size:14px;color:var(--c-inksoft)}
+
+  /* ---------- included checklist ---------- */
+  .incl{display:grid;grid-template-columns:1fr 1fr;gap:var(--s7)}
+  @media (max-width:900px){.incl{grid-template-columns:1fr;gap:var(--s5)}}
+  .ticks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:var(--s3)}
+  .ticks li{display:flex;gap:var(--s3);align-items:flex-start;font-size:15.5px;color:var(--c-inksoft)}
+  .ticks li::before{
+    content:"";flex:none;width:19px;height:19px;margin-top:3px;border-radius:50%;
+    background:var(--c-accent);
+    -webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M20 6 9 17l-5-5' fill='none' stroke='black' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'/></svg>") center/13px no-repeat,linear-gradient(#000,#000);
+    -webkit-mask-composite:xor;mask-composite:exclude;
+    mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M20 6 9 17l-5-5' fill='none' stroke='black' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'/></svg>") center/13px no-repeat;
+  }
+  .ticks li b{color:var(--c-ink);font-weight:650}
+
+  /* ---------- enquiry form ---------- */
+  .form-card{
+    background:var(--c-raised);border:1px solid var(--c-line);border-radius:var(--c-rlg);
+    padding:var(--s6);box-shadow:var(--c-sh2);
+  }
+  .fld{display:flex;flex-direction:column;gap:6px;margin-bottom:var(--s4)}
+  .fld label{font-size:12px;letter-spacing:.09em;text-transform:uppercase;font-weight:700;color:var(--c-muted)}
+  .fld input,.fld textarea,.fld select{
+    font:inherit;font-size:15px;color:var(--c-ink);background:var(--c-sunk);
+    border:1px solid var(--c-line);border-radius:var(--c-rmd);padding:11px 13px;width:100%;
+    transition:border-color var(--t-micro) var(--ease),background-color var(--t-micro) var(--ease),box-shadow var(--t-micro) var(--ease);
+  }
+  .fld textarea{resize:vertical;min-height:92px}
+  .fld input:hover,.fld textarea:hover,.fld select:hover{border-color:var(--c-linestrong)}
+  .fld input:focus,.fld textarea:focus,.fld select:focus{
+    outline:none;border-color:var(--c-accent);background:var(--c-raised);
+    box-shadow:0 0 0 3px var(--c-accentglow);
+  }
+  .fld-row{display:grid;grid-template-columns:1fr 1fr;gap:var(--s4)}
+  @media (max-width:560px){.fld-row{grid-template-columns:1fr;gap:0}}
+  .form-note{margin:var(--s3) 0 0;font-size:12.5px;color:var(--c-muted)}
+
+  /* ---------- sticky mobile call bar ---------- */
+  .callbar{
+    position:fixed;left:0;right:0;bottom:0;z-index:90;display:none;
+    background:var(--c-dark);border-top:1px solid var(--c-darkline);
+    padding:10px 12px calc(10px + env(safe-area-inset-bottom));
+    gap:var(--s2);
+  }
+  .callbar a{
+    flex:1;display:flex;align-items:center;justify-content:center;gap:7px;
+    padding:13px 10px;border-radius:var(--c-rmd);font-size:15px;font-weight:700;text-decoration:none;
+    transition:transform var(--t-micro) var(--ease),background-color var(--t-micro) var(--ease);
+  }
+  .callbar a:active{transform:scale(.97)}
+  .callbar .cb-call{background:var(--c-accent);color:#fff}
+  .callbar .cb-text{background:transparent;color:#fff;border:1px solid var(--c-darkline)}
+  @media (max-width:760px){
+    .callbar{display:flex}
+    body{padding-bottom:76px}
+    .concept-badge{bottom:84px}
+  }
+
 </style>
 </head>
 <body>
@@ -314,6 +409,58 @@
     </div>
   </section>
 
+  
+  <section id="reviews" style="background:var(--c-sunk)">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow mono">Reviews</p>
+        <h2 class="display">This is where the reviews go.</h2>
+        <p>Hall and Sons already has four reviews on Facebook. On the real site they sit right here, on the page people actually land on &mdash; instead of sitting three taps deep in a Facebook page.</p>
+      </div>
+      <div class="revs">
+        <div class="rev rev-empty"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="quote">Your first review drops in here, word for word.</p><p class="who mono">Customer name &middot; suburb</p></div>
+        <div class="rev rev-empty"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="quote">And the next one here.</p><p class="who mono">Customer name &middot; suburb</p></div>
+        <div class="rev rev-empty"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="quote">Three across the page is the sweet spot &mdash; enough to convince, not so many that people stop reading.</p><p class="who mono">Customer name &middot; suburb</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="season">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow mono">Through the year</p>
+        <h2 class="display">What needs doing, and when.</h2>
+        <p>The tablelands run to their own calendar. Frost late, growth hard and short, and a leaf drop that fills every gutter in town.</p>
+      </div>
+      <div class="season"><div class="season-col"><div class="mo mono">Sep &ndash; Nov</div><h4>Growth</h4><p>Once the frosts let go it comes on fast. Regular rounds start back up.</p></div><div class="season-col"><div class="mo mono">Dec &ndash; Feb</div><h4>Peak</h4><p>Longest grass of the year. Fortnightly cuts, and hedges shaped before they get away.</p></div><div class="season-col"><div class="mo mono">Mar &ndash; May</div><h4>The drop</h4><p>Elms and oaks let go. Gutters fill in a fortnight &mdash; this is the window to get them cleared.</p></div><div class="season-col"><div class="mo mono">Jun &ndash; Aug</div><h4>Frost</h4><p>Little to mow. Structural pruning, and a second gutter check after the winter storms.</p></div></div>
+    </div>
+  </section>
+
+  <section id="enquiry" style="background:var(--slate-sunk)">
+    <div class="wrap">
+      <div class="incl">
+        <div>
+          <p class="eyebrow mono">What you get</p>
+          <h2 class="display" style="font-size:clamp(24px,3.2vw,34px);margin:0 0 var(--s5)">Every visit, the same.</h2>
+          <ul class="ticks"><li><b>Mowing</b> &mdash; edging and line trimming, front and back</li><li><b>Beds</b> &mdash; weeded by hand, not just sprayed and left</li><li><b>Hedges</b> &mdash; shaped even, and cut back hard when they need it</li><li><b>Gutters</b> &mdash; cleared by hand and downpipes flushed so you can see them run</li><li><b>Green waste</b> &mdash; all of it goes with us</li><li><b>Quote</b> &mdash; confirmed before any work starts</li></ul>
+        </div>
+        <div>
+          <form class="form-card" id="enq" novalidate>
+            <div class="fld"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required></div>
+            <div class="fld-row">
+              <div class="fld"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" required></div>
+              <div class="fld"><label for="f-sub">Suburb</label><input id="f-sub" name="suburb"></div>
+            </div>
+            <div class="fld"><label for="f-job">What do you need?</label><select id="f-job" name="job"><option>Lawn mowing</option><option>Gutter clean</option><option>Garden tidy-up</option><option>Hedging or pruning</option><option>Regular round</option><option>Something else</option></select></div>
+            <div class="fld"><label for="f-msg">Details</label><textarea id="f-msg" name="details" placeholder="Rough size of the yard, how often, anything tricky to get to&hellip;"></textarea></div>
+            <button class="btn btn-primary" type="submit" style="width:100%">Send enquiry</button>
+            <p class="form-note">Lands straight in hallandsonsservices@gmail.com. Prefer to talk? Call 0493 129 179.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="contact" class="contact">
     <div class="wrap">
       <div class="contact-grid">
@@ -341,6 +488,32 @@
 </footer>
 
 <a class="concept-badge" href="https://ontheedge.app" target="_blank" rel="noopener">Concept by <b>On The Edge</b></a>
+
+
+<div class="callbar">
+  <a class="cb-call" href="tel:+61493129179">Call 0493 129 179</a>
+  <a class="cb-text" href="sms:+61493129179">Text</a>
+</div>
+
+<script>
+(function(){
+  var f = document.getElementById('enq');
+  if (!f) return;
+  f.addEventListener('submit', function(e){
+    e.preventDefault();
+    function g(n){ var el = f.elements[n]; return el ? el.value.trim() : ''; }
+    if (!g('name') || !g('phone')) { f.elements[g('name') ? 'phone' : 'name'].focus(); return; }
+    var body = 'Name: ' + g('name') + '\n'
+             + 'Phone: ' + g('phone') + '\n'
+             + 'Suburb: ' + g('suburb') + '\n'
+             + 'Job: ' + g('job') + '\n' + '\n'
+             + g('details');
+    window.location.href = 'mailto:hallandsonsservices@gmail.com?subject='
+      + encodeURIComponent('Website enquiry from ' + g('name'))
+      + '&body=' + encodeURIComponent(body);
+  });
+})();
+</script>
 
 </body>
 </html>
