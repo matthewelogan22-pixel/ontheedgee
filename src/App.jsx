@@ -1329,37 +1329,41 @@ function Portfolio() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* Concept build — wireframe mockup, not a real client */}
+          {/* Concept build — real sample sites built for real trades businesses, not commissioned clients */}
           <article
             style={reveal(0).style}
             className={`work-card lg:col-span-2 relative bg-surface border border-divider rounded-5xl p-6 sm:p-8 hover:border-primary/40 shadow-sm hover:shadow-xl hover:shadow-primary/10 ${reveal(0).className}`}
           >
             <div className="flex items-start justify-between mb-5">
               <div>
-                <p className="font-mono text-[10px] uppercase tracking-widest text-primary mb-1">Concept Build · Boutique Retail</p>
-                <h3 className="font-display font-bold text-2xl text-ink">Harlow &amp; Rowe <span className="text-muted font-normal text-lg">(concept)</span></h3>
+                <p className="font-mono text-[10px] uppercase tracking-widest text-primary mb-1">Concept Builds · Trades &amp; Local Services</p>
+                <h3 className="font-display font-bold text-2xl text-ink">Built for businesses like yours <span className="text-muted font-normal text-lg">(concept)</span></h3>
               </div>
               <span className="hidden sm:flex h-10 w-10 rounded-full bg-primary/10 items-center justify-center flex-shrink-0">
                 <ArrowUpRight className="h-4 w-4 text-primary" />
               </span>
             </div>
             <div className="grid grid-cols-2 gap-3 mb-5">
-              <ConceptFrame
-                src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=70"
-                alt="Concept homepage mockup — boutique retail interior"
-                label="home"
-              />
-              <ConceptFrame
-                src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?auto=format&fit=crop&w=800&q=70"
-                alt="Concept shop page mockup — boutique retail interior"
-                label="shop"
-              />
+              <a href="https://ontheedge.app/preview/nowra-scaffolding.html" target="_blank" rel="noreferrer" className="block">
+                <ConceptFrame
+                  src="/portfolio/nowra-scaffolding-thumb.jpg"
+                  alt="Concept homepage — Nowra Scaffolding, a scaffolding contractor in South Nowra NSW"
+                  label="nowra-scaffolding.html"
+                />
+              </a>
+              <a href="https://ontheedge.app/preview/cool-climate-services.html" target="_blank" rel="noreferrer" className="block">
+                <ConceptFrame
+                  src="/portfolio/cool-climate-thumb.jpg"
+                  alt="Concept homepage — Cool Climate Services, an HVAC and refrigeration contractor in Gladstone QLD"
+                  label="cool-climate-services.html"
+                />
+              </a>
             </div>
             <p className="text-muted text-[15px] leading-relaxed mb-4">
-              A concept build exploring our design approach for an apparel boutique — considered layout, clean typography, and a shop experience that feels as polished as the product.
+              Sample homepages built on spec for real Australian trades businesses running on Facebook alone — no website to show up in a Google search. Each one is a genuine working build, not a mockup.
             </p>
             <div className="flex flex-wrap gap-2">
-              {['Custom Design', 'React + Vite', 'Concept'].map((tag) => (
+              {['Custom Design', 'Mobile-First', 'Concept'].map((tag) => (
                 <span key={tag} className="font-mono text-[10px] uppercase tracking-widest text-primary bg-primary/10 border border-primary/20 px-2.5 py-1 rounded-full">
                   {tag}
                 </span>
