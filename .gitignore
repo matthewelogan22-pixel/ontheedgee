@@ -3,3 +3,13 @@ dist/
 .env
 .env.local
 *.log
+
+# Ruflo local secrets and runtime data
+.env.*.local
+.claude-flow/data/
+.claude-flow/logs/
+.claude-flow/sessions/
+.agents/
+.claude-flow/
+.swarm/
+.claude/

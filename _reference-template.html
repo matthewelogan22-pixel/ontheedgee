@@ -1,0 +1,712 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ace Electrical & Lighting</title>
+<style>
+  :root {
+    --void: #12151b;
+    --void-raised: #191d24;
+    --paper: #eef0f2;
+    --paper-raised: #ffffff;
+    --ink: #14161c;
+    --ink-soft: #454851;
+    --muted: #7c808c;
+    --line: #d7dae0;
+    --line-dark: #2a2e38;
+    --amber: #14b8c4;
+    --amber-ink: #14161c;
+    --copper: #0d7377;
+    --safe: #4fae6a;
+    --shadow: 0 1px 2px rgba(18,21,27,0.04), 0 10px 28px -14px rgba(18,21,27,0.22);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: -apple-system, "Segoe UI", system-ui, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: reduce) { * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+
+  .mono { font-family: "JetBrains Mono", ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", monospace; }
+  .display {
+    font-family: -apple-system, "Segoe UI Semibold", "Segoe UI", system-ui, sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+
+  /* concept watermark */
+  .concept-badge {
+    position: fixed;
+    bottom: 18px;
+    right: 18px;
+    z-index: 50;
+    background: var(--void);
+    color: #fff;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.55rem 0.9rem;
+    border-radius: 999px;
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .concept-badge::before { content: ""; width: 7px; height: 7px; border-radius: 999px; background: var(--amber); }
+
+  /* nav */
+  header.site-nav {
+    position: sticky; top: 0; z-index: 40;
+    background: var(--void);
+    border-bottom: 1px solid var(--line-dark);
+  }
+  .nav-inner {
+    max-width: 1180px; margin: 0 auto;
+    padding: 0.9rem 1.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 1rem;
+  }
+  .brand { display: flex; align-items: center; gap: 0.6rem; color: #fff; }
+  .brand-mark {
+    width: 34px; height: 34px; border-radius: 8px;
+    background: linear-gradient(135deg, var(--amber), var(--copper));
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .brand-name { font-weight: 800; font-size: 1.02rem; letter-spacing: -0.01em; }
+  .nav-cta {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--amber); color: var(--amber-ink);
+    font-weight: 700; font-size: 0.85rem;
+    padding: 0.55rem 1.1rem; border-radius: 8px;
+    text-decoration: none;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+  }
+
+  /* hero */
+  .hero {
+    position: relative;
+    background: var(--void);
+    color: #fff;
+    overflow: hidden;
+    padding: 4.5rem 1.5rem 5rem;
+    min-height: 640px;
+    display: flex;
+    align-items: center;
+  }
+  .hero-photo-bg { position: absolute; inset: 0; z-index: 0; }
+  .hero-photo-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block; }
+  .hero-photo-bg::after {
+    content: "";
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(90deg, rgba(18,21,27,0.97) 0%, rgba(18,21,27,0.88) 32%, rgba(18,21,27,0.55) 60%, rgba(18,21,27,0.35) 100%),
+      linear-gradient(0deg, rgba(18,21,27,0.9) 0%, rgba(18,21,27,0.1) 40%);
+  }
+  .hero-circuit {
+    position: absolute; inset: 0;
+    opacity: 0.35;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .hero-inner {
+    position: relative; z-index: 2;
+    max-width: 1180px; margin: 0 auto;
+    width: 100%;
+    display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 3rem;
+    align-items: center;
+  }
+  @media (max-width: 880px) { .hero-inner { grid-template-columns: 1fr; } }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.14em;
+    color: var(--amber);
+    margin-bottom: 1.1rem;
+  }
+  .eyebrow::before { content: ""; width: 7px; height: 7px; border-radius: 999px; background: var(--amber); box-shadow: 0 0 0 4px rgba(242,169,59,0.18); }
+  h1.hero-title {
+    font-size: clamp(2.3rem, 5vw, 3.4rem);
+    line-height: 1.03;
+    text-transform: uppercase;
+    margin: 0 0 1.1rem;
+  }
+  h1.hero-title .accent { color: var(--amber); }
+  .hero-sub {
+    color: rgba(255,255,255,0.62);
+    font-size: 1.08rem;
+    max-width: 46ch;
+    margin: 0 0 2rem;
+  }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+  .btn-primary {
+    background: var(--amber); color: var(--amber-ink);
+    font-weight: 700; font-size: 0.95rem;
+    padding: 0.85rem 1.5rem; border-radius: 8px;
+    text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;
+  }
+  .btn-ghost {
+    background: rgba(255,255,255,0.06); color: #fff;
+    border: 1px solid rgba(255,255,255,0.16);
+    font-weight: 600; font-size: 0.95rem;
+    padding: 0.85rem 1.5rem; border-radius: 8px;
+    text-decoration: none;
+  }
+  .hero-meta {
+    display: flex; gap: 1.5rem; margin-top: 2.2rem;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 0.74rem; color: rgba(255,255,255,0.45);
+    text-transform: uppercase; letter-spacing: 0.06em;
+    flex-wrap: wrap;
+  }
+  .hero-meta strong { color: rgba(255,255,255,0.85); display: block; font-size: 0.95rem; margin-bottom: 0.15rem; font-family: -apple-system, system-ui, sans-serif; text-transform: none; letter-spacing: 0; }
+
+  /* plate card */
+  .plate {
+    background: rgba(25,29,36,0.72);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 16px;
+    padding: 1.6rem;
+    position: relative;
+    box-shadow: 0 20px 50px -20px rgba(0,0,0,0.6);
+  }
+  .plate::before {
+    content: "";
+    position: absolute; top: 14px; left: 14px; right: 14px; bottom: 14px;
+    border: 1px dashed rgba(242,169,59,0.25);
+    border-radius: 10px;
+    pointer-events: none;
+  }
+  .plate-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.55rem 0; border-bottom: 1px solid var(--line-dark); font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 0.8rem; }
+  .plate-row:last-child { border-bottom: none; }
+  .plate-row .k { color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.68rem; }
+  .plate-row .v { color: #fff; font-weight: 600; }
+  .plate-row .v.on { color: var(--safe); }
+
+  /* sections */
+  section { padding: 4rem 1.5rem; }
+  .section-inner { max-width: 1180px; margin: 0 auto; }
+  .section-head { max-width: 60ch; margin-bottom: 2.2rem; }
+  .section-head .eyebrow { color: var(--copper); }
+  .section-head .eyebrow::before { background: var(--copper); box-shadow: 0 0 0 4px rgba(193,98,43,0.15); }
+  h2.section-title { font-size: clamp(1.6rem, 3vw, 2.1rem); margin: 0 0 0.6rem; }
+  .section-sub { color: var(--ink-soft); font-size: 1.02rem; }
+
+  /* breaker panel services */
+  .panel {
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 0.4rem;
+    box-shadow: var(--shadow);
+  }
+  .breaker-row {
+    display: grid;
+    grid-template-columns: 44px 1fr auto;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.1rem 1.2rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .breaker-row:last-child { border-bottom: none; }
+  .switch {
+    width: 30px; height: 44px;
+    border-radius: 6px;
+    background: linear-gradient(180deg, #e7e9ec, #d7dae0);
+    border: 1px solid var(--line);
+    position: relative;
+  }
+  .switch::after {
+    content: "";
+    position: absolute; left: 50%; top: 5px;
+    width: 14px; height: 16px; border-radius: 3px;
+    background: var(--amber);
+    transform: translateX(-50%);
+  }
+  .breaker-title { font-weight: 700; font-size: 1.02rem; }
+  .breaker-desc { color: var(--muted); font-size: 0.9rem; margin-top: 0.15rem; }
+  .breaker-code { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 0.72rem; color: var(--muted); white-space: nowrap; }
+
+  /* trust strip */
+  .trust-strip {
+    background: var(--paper);
+    color: var(--ink);
+  }
+  .trust-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 1px; background: var(--line);
+    border: 1px solid var(--line); border-radius: 16px; overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .trust-item { background: var(--paper-raised); padding: 1.6rem 1.4rem; }
+  .trust-item .num { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 0.7rem; color: var(--copper); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.6rem; }
+  .trust-item .t { font-weight: 700; font-size: 1.05rem; margin-bottom: 0.35rem; color: var(--ink); }
+  .trust-item .d { color: var(--muted); font-size: 0.88rem; }
+
+  /* service area */
+  .area-tags { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-top: 1.2rem; }
+  .area-tag {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 0.76rem;
+    padding: 0.4rem 0.85rem;
+    border-radius: 999px;
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    color: var(--ink-soft);
+  }
+
+  /* contact */
+  .contact-band {
+    background: linear-gradient(135deg, var(--amber), var(--copper));
+    color: #1a1206;
+    border-radius: 22px;
+    padding: 2.6rem;
+    display: grid; grid-template-columns: 1.2fr 1fr; gap: 2rem; align-items: center;
+  }
+  @media (max-width: 780px) { .contact-band { grid-template-columns: 1fr; } }
+  .contact-band h2 { font-size: clamp(1.7rem, 3.4vw, 2.3rem); margin: 0 0 0.7rem; }
+  .contact-band p { font-size: 1.02rem; opacity: 0.85; max-width: 42ch; }
+  .contact-card {
+    background: rgba(20,15,5,0.92);
+    color: #fff;
+    border-radius: 16px;
+    padding: 1.5rem;
+  }
+  .contact-line { display: flex; align-items: center; gap: 0.8rem; padding: 0.7rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+  .contact-line:last-child { border-bottom: none; }
+  .contact-line .ic { width: 34px; height: 34px; border-radius: 8px; background: rgba(242,169,59,0.15); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--amber); font-family: "JetBrains Mono", monospace; font-weight: 700; }
+  .contact-line a { color: #fff; text-decoration: none; font-weight: 600; }
+  .contact-line .lbl { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.4); font-family: "JetBrains Mono", monospace; }
+
+  footer { padding: 2rem 1.5rem 3rem; text-align: center; color: var(--muted); font-size: 0.82rem; }
+
+  /* about */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+  @media (max-width: 880px) { .about-grid { grid-template-columns: 1fr; gap: 2rem; } }
+  .about-photo { border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); border: 1px solid var(--line); position: relative; aspect-ratio: 4/3; }
+  .about-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .about-photo .cap { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(18,21,27,0.85), transparent); color: #fff; padding: 1.5rem 1.2rem 0.9rem; font-family: "JetBrains Mono", monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; }
+  .about-copy p { color: var(--ink-soft); font-size: 1.02rem; margin: 0 0 1.1rem; }
+  .about-stats { display: flex; gap: 1.8rem; margin-top: 1.6rem; flex-wrap: wrap; }
+  .about-stats div strong { display: block; font-size: 1.5rem; font-weight: 800; color: var(--ink); }
+  .about-stats div span { font-size: 0.78rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; font-family: "JetBrains Mono", monospace; }
+
+  /* gallery */
+  .gallery-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 1rem; }
+  @media (max-width: 780px) { .gallery-grid { grid-template-columns: 1fr; } }
+  .gallery-tile { border-radius: 18px; overflow: hidden; position: relative; box-shadow: var(--shadow); border: 1px solid var(--line); }
+  .gallery-tile img { width: 100%; height: 100%; object-fit: cover; display: block; min-height: 240px; }
+  .gallery-tile.graphic { background: var(--void); display: flex; align-items: center; justify-content: center; min-height: 240px; }
+  .gallery-label { position: absolute; top: 1rem; left: 1rem; background: rgba(18,21,27,0.75); color: #fff; font-family: "JetBrains Mono", monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; padding: 0.4rem 0.7rem; border-radius: 999px; }
+
+  /* faq */
+  .faq-list { display: flex; flex-direction: column; gap: 0; border-top: 1px solid var(--line); }
+  .faq-item { border-bottom: 1px solid var(--line); padding: 1.4rem 0; }
+  .faq-item h3 { font-size: 1.02rem; margin: 0 0 0.5rem; font-weight: 700; display: flex; gap: 0.7rem; align-items: baseline; }
+  .faq-item h3 .qm { color: var(--amber); font-family: "JetBrains Mono", monospace; font-size: 0.85rem; flex-shrink: 0; }
+  .faq-item p { color: var(--ink-soft); font-size: 0.94rem; margin: 0 0 0 1.5rem; max-width: 62ch; }
+
+  /* trust bar (below hero) */
+  .trust-bar { background: var(--void-raised); border-bottom: 1px solid var(--line-dark); }
+  .trust-bar-inner {
+    max-width: 1180px; margin: 0 auto; padding: 1rem 1.5rem;
+    display: flex; flex-wrap: wrap; gap: 1.6rem; justify-content: center;
+  }
+  .trust-bar-item { display: flex; align-items: center; gap: 0.55rem; color: rgba(255,255,255,0.75); font-size: 0.85rem; font-weight: 600; }
+  .trust-bar-item svg { flex-shrink: 0; color: var(--amber); }
+
+  /* compliance section */
+  .compliance { background: var(--paper-raised); border: 1px solid var(--line); border-radius: 20px; padding: 2.2rem; box-shadow: var(--shadow); }
+  .compliance-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 1.6rem; }
+  .compliance-item h3 { font-size: 0.98rem; margin: 0 0 0.4rem; font-weight: 700; }
+  .compliance-item p { color: var(--muted); font-size: 0.88rem; margin: 0; }
+  .compliance-item a { color: var(--copper); }
+
+  /* get a quote */
+  .quote-band {
+    background: var(--void);
+    color: #fff;
+    border-radius: 22px;
+    padding: 2.8rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .quote-band::before {
+    content: "";
+    position: absolute; top: -30%; right: -10%;
+    width: 420px; height: 420px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(20,184,196,0.18), transparent 70%);
+    pointer-events: none;
+  }
+  .quote-head { position: relative; max-width: 46ch; margin-bottom: 2.2rem; }
+  .quote-head .eyebrow { color: var(--amber); }
+  .quote-head .eyebrow::before { background: var(--amber); box-shadow: 0 0 0 4px rgba(20,184,196,0.18); }
+  .quote-head h2 { font-size: clamp(1.6rem, 3vw, 2.1rem); margin: 0 0 0.6rem; }
+  .quote-head p { color: rgba(255,255,255,0.6); font-size: 1.02rem; margin: 0; }
+  .quote-steps { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 2.2rem; }
+  @media (max-width: 780px) { .quote-steps { grid-template-columns: 1fr; } }
+  .quote-step { border-left: 2px solid rgba(255,255,255,0.15); padding-left: 1.1rem; }
+  .quote-step .n { font-family: "JetBrains Mono", monospace; font-size: 0.7rem; color: var(--amber); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; }
+  .quote-step h3 { font-size: 1.02rem; margin: 0 0 0.4rem; }
+  .quote-step p { color: rgba(255,255,255,0.55); font-size: 0.88rem; margin: 0; }
+  .quote-actions { position: relative; display: flex; flex-wrap: wrap; gap: 0.8rem; }
+
+  /* reviews placeholder */
+  .reviews-badge { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.8rem; flex-wrap: wrap; }
+  .reviews-stars { display: flex; gap: 0.15rem; color: var(--amber); }
+  .reviews-score { font-family: -apple-system, system-ui, sans-serif; font-weight: 800; font-size: 1.3rem; }
+  .reviews-note { font-family: "JetBrains Mono", monospace; font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+  .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.1rem; }
+  .review-card {
+    border: 1px dashed var(--line); border-radius: 16px;
+    padding: 1.4rem; background: var(--paper-raised);
+  }
+  .review-card .stars { display: flex; gap: 0.1rem; color: var(--line); margin-bottom: 0.8rem; }
+  .review-card .placeholder-line { height: 9px; border-radius: 5px; background: var(--line); margin-bottom: 0.5rem; }
+  .review-card .placeholder-line.short { width: 60%; }
+  .review-card .tag { display: inline-block; margin-top: 0.8rem; font-family: "JetBrains Mono", monospace; font-size: 0.68rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+</style>
+</head>
+<body>
+<div class="concept-badge">Concept design — On The Edge</div>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <div class="brand">
+      <span class="brand-mark">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" fill="#14161c"/></svg>
+      </span>
+      <span class="brand-name">Ace Electrical &amp; Lighting</span>
+    </div>
+    <a class="nav-cta" href="tel:+61430388496">CALL 0430 388 496</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-photo-bg">
+    <img src="data:image/jpeg;base64,PLACEHOLDER_BASE64_IMAGE_DATA_REMOVED" alt="" role="presentation">
+  </div>
+  <svg class="hero-circuit" viewBox="0 0 1180 520" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <g stroke="#f2a93b" stroke-opacity="0.14" stroke-width="1.2" fill="none">
+      <path d="M0 60 H260 V140 H520" />
+      <path d="M1180 90 H900 V200 H700 V60" />
+      <path d="M0 420 H180 V340 H420 V460" />
+      <path d="M1180 460 H960 V380 H760" />
+    </g>
+    <g fill="#f2a93b" fill-opacity="0.5">
+      <circle cx="260" cy="60" r="3.5" /><circle cx="520" cy="140" r="3.5" />
+      <circle cx="900" cy="90" r="3.5" /><circle cx="700" cy="200" r="3.5" />
+      <circle cx="180" cy="420" r="3.5" /><circle cx="420" cy="340" r="3.5" />
+      <circle cx="960" cy="460" r="3.5" /><circle cx="760" cy="380" r="3.5" />
+    </g>
+  </svg>
+  <div class="hero-inner">
+    <div>
+      <span class="eyebrow">Ipswich, QLD &nbsp;·&nbsp; Licensed Electrician</span>
+      <h1 class="hero-title display">Ipswich's power <span class="accent">stays on</span> because Ace shows up.</h1>
+      <p class="hero-sub">Residential and commercial electrical work across Ipswich — switchboard upgrades, lighting, safety switches, and same-day fault finding when something trips at the worst time.</p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="tel:+61430388496">Call 0430 388 496 &rarr;</a>
+        <a class="btn-ghost" href="#services">See services</a>
+      </div>
+      <div class="hero-meta">
+        <div><strong>Ipswich &amp; surrounds</strong>Service area</div>
+        <div><strong>Licensed &amp; insured</strong>QLD electrical contractor</div>
+      </div>
+    </div>
+    <div class="plate">
+      <div class="plate-row"><span class="k">Status</span><span class="v on">● Taking bookings</span></div>
+      <div class="plate-row"><span class="k">Callout</span><span class="v">Same-day, most jobs</span></div>
+      <div class="plate-row"><span class="k">Area</span><span class="v">Ipswich · Springfield · Booval</span></div>
+      <div class="plate-row"><span class="k">Contact</span><span class="v">0430 388 496</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <span class="trust-bar-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg> Licensed Electrical Contractor</span>
+    <span class="trust-bar-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg> Fully Insured</span>
+    <span class="trust-bar-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg> AS/NZS 3000 Compliant</span>
+    <span class="trust-bar-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg> Same-Day Callouts</span>
+  </div>
+</div>
+
+<section>
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-photo">
+        <img src="data:image/jpeg;base64,PLACEHOLDER_BASE64_IMAGE_DATA_REMOVED" alt="Modern switchboard with circuit breakers, representative of Ace Electrical & Lighting's work" loading="lazy">
+        <div class="cap">Switchboard work, done to spec</div>
+      </div>
+      <div class="about-copy">
+        <span class="eyebrow" style="color:var(--copper)">Who's behind it</span>
+        <h2 class="section-title display">A licensed electrician who actually answers the phone.</h2>
+        <p>Ace Electrical &amp; Lighting is a licensed electrical contractor working across Ipswich — the kind of business where the person you call is the person who shows up. No dispatch centre, no subcontracted crew you've never met.</p>
+        <p>Every job is quoted upfront and finished to current QLD electrical safety standards, whether it's a single downlight or a full switchboard replacement.</p>
+        <p>Ace works directly with homeowners, landlords, and property managers across Ipswich — no call centre in between, no job too small to bother quoting properly.</p>
+        <div class="about-stats">
+          <div><strong>Ipswich</strong><span>Based &amp; local</span></div>
+          <div><strong>Licensed</strong><span>QLD contractor</span></div>
+          <div><strong>Same-day</strong><span>Most callouts</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="eyebrow">On the board</span>
+      <h2 class="section-title display">What Ace switches on.</h2>
+      <p class="section-sub">The jobs that keep the phone ringing — laid out like the switchboard itself.</p>
+    </div>
+    <div class="panel">
+      <div class="breaker-row">
+        <div class="switch"></div>
+        <div><div class="breaker-title">Switchboard upgrades</div><div class="breaker-desc">Old fuse boxes replaced with compliant, safety-switch-protected boards.</div></div>
+        <div class="breaker-code">JOB / SWB-01</div>
+      </div>
+      <div class="breaker-row">
+        <div class="switch"></div>
+        <div><div class="breaker-title">Fault finding &amp; repairs</div><div class="breaker-desc">Power out, lights flickering, breaker keeps tripping — found and fixed.</div></div>
+        <div class="breaker-code">JOB / FLT-02</div>
+      </div>
+      <div class="breaker-row">
+        <div class="switch"></div>
+        <div><div class="breaker-title">Lighting &amp; ceiling fans</div><div class="breaker-desc">Downlights, outdoor lighting, fan installs and replacements.</div></div>
+        <div class="breaker-code">JOB / LGT-03</div>
+      </div>
+      <div class="breaker-row">
+        <div class="switch"></div>
+        <div><div class="breaker-title">Safety switch &amp; smoke alarm compliance</div><div class="breaker-desc">Meet current QLD rental and safety compliance requirements.</div></div>
+        <div class="breaker-code">JOB / CMP-04</div>
+      </div>
+      <div class="breaker-row">
+        <div class="switch"></div>
+        <div><div class="breaker-title">EV charger installation</div><div class="breaker-desc">Home EV charger supply and installation, done to spec.</div></div>
+        <div class="breaker-code">JOB / EVC-05</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-inner">
+    <div class="quote-band">
+      <div class="quote-head">
+        <span class="eyebrow">Get a quote</span>
+        <h2 class="display">Getting a price is easy.</h2>
+        <p>No forms to fill out, no waiting days for a call back. Reach out and Ace takes it from there.</p>
+      </div>
+      <div class="quote-steps">
+        <div class="quote-step">
+          <div class="n">Step 1</div>
+          <h3>Get in touch</h3>
+          <p>Call or email — describe the job, or send a photo if it's easier.</p>
+        </div>
+        <div class="quote-step">
+          <div class="n">Step 2</div>
+          <h3>We assess it</h3>
+          <p>Over the phone for simple jobs, on-site for anything bigger.</p>
+        </div>
+        <div class="quote-step">
+          <div class="n">Step 3</div>
+          <h3>Written price</h3>
+          <p>You get a firm number before any work starts. No obligation.</p>
+        </div>
+      </div>
+      <div class="quote-actions">
+        <a class="btn-primary" href="tel:+61430388496">Call 0430 388 496 &rarr;</a>
+        <a class="btn-ghost" href="mailto:aceelectrical_crossan@hotmail.com">Email instead</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="eyebrow">The work</span>
+      <h2 class="section-title display">What the job actually looks like.</h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-tile">
+        <span class="gallery-label">Switchboard</span>
+        <img src="data:image/jpeg;base64,PLACEHOLDER_BASE64_IMAGE_DATA_REMOVED" alt="Circuit breakers inside a switchboard" loading="lazy">
+      </div>
+      <div class="gallery-tile">
+        <span class="gallery-label">On the tools</span>
+        <img src="data:image/jpeg;base64,PLACEHOLDER_BASE64_IMAGE_DATA_REMOVED" alt="Electrical tools laid out on a work table" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-inner">
+    <div class="compliance">
+      <span class="eyebrow">Standards</span>
+      <h2 class="section-title display">Every job meets AS/NZS 3000.</h2>
+      <p class="section-sub">The Australian standard for safe electrical installations — that's the baseline, not the goal, on every job Ace takes on.</p>
+      <div class="compliance-grid">
+        <div class="compliance-item">
+          <h3>Licensed Electrical Contractor</h3>
+          <p>QLD-licensed for residential and commercial electrical work.</p>
+        </div>
+        <div class="compliance-item">
+          <h3>Fully Insured</h3>
+          <p>Public liability and work cover compliant for every job.</p>
+        </div>
+        <div class="compliance-item">
+          <h3><a href="https://www.standards.org.au/flagship-projects/wiring-rules" target="_blank" rel="noreferrer noopener">AS/NZS 3000 Wiring Rules</a></h3>
+          <p>The Australian standard for safe electrical installations — every job complies.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="eyebrow">Reputation</span>
+      <h2 class="section-title display">This is where the reviews go.</h2>
+      <p class="section-sub">Once Ace's Google Business Profile is connected, real reviews pull in here automatically — this is just the layout, waiting to be filled.</p>
+    </div>
+    <div class="reviews-badge">
+      <span class="reviews-stars">★★★★★</span>
+      <span class="reviews-score">—</span>
+      <span class="reviews-note">Connect Google Reviews to populate</span>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <div class="placeholder-line"></div>
+        <div class="placeholder-line"></div>
+        <div class="placeholder-line short"></div>
+        <span class="tag">Example review slot</span>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <div class="placeholder-line"></div>
+        <div class="placeholder-line"></div>
+        <div class="placeholder-line short"></div>
+        <span class="tag">Example review slot</span>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <div class="placeholder-line"></div>
+        <div class="placeholder-line"></div>
+        <div class="placeholder-line short"></div>
+        <span class="tag">Example review slot</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="trust-strip">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="eyebrow">How it works</span>
+      <h2 class="section-title display">No callout surprises.</h2>
+    </div>
+    <div class="trust-grid">
+      <div class="trust-item"><div class="num">01</div><div class="t">Written quote first</div><div class="d">Ace comes to the property, assesses the job, and gives you a price in writing before any work starts. No call-out fee just for a quote.</div></div>
+      <div class="trust-item"><div class="num">02</div><div class="t">Direct to Ace, every time</div><div class="d">Not a call centre booking whoever's free — you deal with the same local Ipswich electrician start to finish.</div></div>
+      <div class="trust-item"><div class="num">03</div><div class="t">Left as clean as it started</div><div class="d">Site cleaned up after every job — no offcuts, no mess, no trace we were there beyond the work itself.</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="eyebrow">Service area</span>
+      <h2 class="section-title display">Ipswich &amp; the surrounding suburbs.</h2>
+    </div>
+    <div class="area-tags">
+      <span class="area-tag">Ipswich</span>
+      <span class="area-tag">Springfield</span>
+      <span class="area-tag">Booval</span>
+      <span class="area-tag">Redbank</span>
+      <span class="area-tag">Goodna</span>
+      <span class="area-tag">Raceview</span>
+      <span class="area-tag">Bundamba</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="eyebrow">Before you call</span>
+      <h2 class="section-title display">Common questions.</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <h3><span class="qm">Q.</span> Do you do emergency callouts?</h3>
+        <p>Yes — most jobs are same-day. Call the number above and describe what's happening; genuine emergencies (no power, sparking, exposed wiring) get priority.</p>
+      </div>
+      <div class="faq-item">
+        <h3><span class="qm">Q.</span> Are you licensed and insured?</h3>
+        <p>Yes, fully licensed as a QLD electrical contractor and insured for residential and commercial work.</p>
+      </div>
+      <div class="faq-item">
+        <h3><span class="qm">Q.</span> Do you give quotes before starting?</h3>
+        <p>Always. You'll know the price before any work begins — no surprise call-out fees or after-the-fact charges.</p>
+      </div>
+      <div class="faq-item">
+        <h3><span class="qm">Q.</span> What areas do you cover?</h3>
+        <p>Ipswich and the surrounding suburbs — see the service area above. If you're just outside it, call and ask anyway.</p>
+      </div>
+      <div class="faq-item">
+        <h3><span class="qm">Q.</span> How quickly can you get here?</h3>
+        <p>Most callouts are same-day. For non-urgent work, Ace will give you a realistic window when you book — not a vague "sometime this week."</p>
+      </div>
+      <div class="faq-item">
+        <h3><span class="qm">Q.</span> Do you charge a call-out fee just to quote?</h3>
+        <p>No. Quotes are free — you only pay once you've accepted a price and the work is booked in.</p>
+      </div>
+      <div class="faq-item">
+        <h3><span class="qm">Q.</span> Is the work guaranteed?</h3>
+        <p>Yes — every job is finished to AS/NZS 3000 and backed by workmanship warranty. If something's not right, Ace comes back and fixes it.</p>
+      </div>
+      <div class="faq-item">
+        <h3><span class="qm">Q.</span> Can you help with rental compliance and smoke alarms?</h3>
+        <p>Yes — safety switch and smoke alarm compliance checks for landlords and property managers across Ipswich.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-inner">
+    <div class="contact-band">
+      <div>
+        <h2 class="display">Something not working?</h2>
+        <p>Call direct — no booking form, no call centre. Just Ace.</p>
+      </div>
+      <div class="contact-card">
+        <div class="contact-line"><span class="ic">☎</span><div><div class="lbl">Phone</div><a href="tel:+61430388496">0430 388 496</a></div></div>
+        <div class="contact-line"><span class="ic">@</span><div><div class="lbl">Email</div><a href="mailto:aceelectrical_crossan@hotmail.com">aceelectrical_crossan@hotmail.com</a></div></div>
+        <div class="contact-line"><span class="ic">▤</span><div><div class="lbl">Area</div><span style="font-weight:600">Ipswich, QLD</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>Concept design for Ace Electrical &amp; Lighting, built by On The Edge — ontheedge.app</footer>
+
+</body>
+</html>
