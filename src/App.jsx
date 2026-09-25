@@ -1542,26 +1542,26 @@ function Packages() {
     {
       Icon: TrendingUp,
       name: 'Grow',
-      tagline: 'Website plus the marketing to fill it.',
+      tagline: 'A site that keeps running itself.',
       features: [
         'Everything in Launch',
         'eCommerce or booking system',
-        'Monthly SEO & content',
-        'Google Business optimisation',
-        'Monthly performance report',
+        'Ongoing hosting, updates & backups',
+        'Content and copy edits as you need them',
+        'Priority turnaround on requests',
       ],
       highlight: true,
     },
     {
       Icon: Sparkles,
       name: 'Scale',
-      tagline: 'The full growth engine.',
+      tagline: 'For bigger builds and custom needs.',
       features: [
         'Everything in Grow',
-        'Paid ads management (Google & Meta)',
-        'Email & SMS marketing flows',
-        'AI-powered site features',
-        'Dedicated monthly strategy call',
+        'Multi-page or multi-location builds',
+        'Custom integrations (booking, payments, calendars)',
+        'New features added as the business grows',
+        'Direct line to Matt for ongoing changes',
       ],
       highlight: false,
     },
@@ -1580,6 +1580,12 @@ function Packages() {
           <p className="text-muted text-lg mt-6 max-w-xl mx-auto leading-relaxed">
             Every project is scoped to your business — here's roughly where most clients land. Get a quote in 24 hours.
           </p>
+          <div className="inline-flex items-center gap-2.5 mt-6 bg-primary/8 border border-primary/20 rounded-full px-5 py-2.5">
+            <ShieldCheck className="h-4 w-4 text-primary flex-shrink-0" strokeWidth={2} />
+            <span className="text-sm font-medium text-ink">
+              Every build starts with a <span className="text-primary font-semibold">free first month</span> — no card required, pay only if you decide to keep it.
+            </span>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
