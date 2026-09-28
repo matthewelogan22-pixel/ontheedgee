@@ -1531,7 +1531,7 @@ function Packages() {
       name: 'Google Profile Fix',
       tagline: 'Show up on Google Maps when locals search.',
       price: '$350',
-      priceNote: 'one-off · done in a few days',
+      priceNote: 'one-off · set up this week',
       features: [
         'Google Business Profile claimed and verified',
         'Right categories, services and suburbs',
