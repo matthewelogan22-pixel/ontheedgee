@@ -152,6 +152,23 @@ footer .wrap{display:flex;flex-direction:column;gap:var(--s2)}
 }
 @media (max-width:560px){ .svc{grid-template-columns:1fr} }
 @media (max-width:420px){ .brand{font-size:17px;gap:8px} .brand svg{width:28px;height:28px} .nav-call{padding:0 12px} .wrap{padding-left:16px;padding-right:16px} .price{padding:var(--s4)} .report dt,.report dd{padding:9px 12px} }
+.hero-doc{background:var(--gum);padding:var(--s7) 0}
+.doc{background:#FFFDF7;color:var(--ink);border-radius:6px;max-width:980px;margin:0 auto;padding:var(--s6);box-shadow:0 30px 60px -34px rgba(0,0,0,.7);border-top:10px solid var(--amber)}
+.doc-top{display:flex;justify-content:space-between;align-items:baseline;gap:var(--s3);flex-wrap:wrap;border-bottom:2px solid var(--ink);padding-bottom:var(--s2)}
+.doc-tag{font-size:13px;color:var(--ink-soft);font-weight:600}
+.doc h1{margin-top:var(--s4)!important;max-width:20ch}
+.doc p.lead{font-size:19px;color:var(--ink-soft);margin-top:var(--s3);max-width:52ch}
+.doc-grid{display:grid;grid-template-columns:repeat(3,1fr);margin:var(--s5) 0 0;border-top:1px solid var(--line)}
+.doc-grid div{padding:var(--s3) var(--s3) var(--s3) 0;border-bottom:1px solid var(--line)}
+.doc-grid dt{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.doc-grid dd{margin:4px 0 0;font-weight:600}
+.doc-grid dd i{font-weight:400;color:var(--ink-soft)}
+.doc-foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:var(--s4);margin-top:var(--s5)}
+.doc-foot .rating{margin-top:0}
+.doc-foot .hero-cta{margin-top:0}
+.doc .cap{margin-top:var(--s4);font-size:13px;color:var(--ink-soft)}
+@media (max-width:900px){.doc-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:760px){.hero-doc{padding:var(--s4) 0 var(--s5)}.doc{padding:var(--s4)}.doc p.lead{font-size:17px}.doc-grid dd{font-size:15px}}
 </style>
 </head>
 <body>
@@ -173,29 +190,29 @@ footer .wrap{display:flex;flex-direction:column;gap:var(--s2)}
 <div class="season"><span class="long">Seen flying termites this spring? </span><span class="short">Flying termites? </span><a href="#quote"><span class="long">Book a termite inspection</span><span class="short">Book an inspection</span></a></div>
 
 <main id="top">
-  <section class="hero" aria-labelledby="h1">
-    <div class="wrap hero-grid">
-      <div>
-        <span class="eyebrow">Pest control · Your area</span>
+  <section class="hero hero-doc" aria-labelledby="h1">
+    <div class="wrap">
+      <article class="doc">
+        <div class="doc-top"><span class="eyebrow">Pest control · Your area</span><span class="doc-tag">Treatment report · Example</span></div>
         <h1 id="h1" style="margin-top:8px">Pest control that tells you what it used, and where.</h1>
-        <span class="rating">★ Your Google rating and review count show here, linked to your listing</span>
         <p class="lead">General pests, termites and rodents. After every visit you get a written report, so you know exactly what was done in your home.</p>
-        <div class="hero-cta">
-          <a class="btn btn-amber" href="tel:0400000000">Call 0400 000 000</a>
-          <a class="btn btn-line" href="#quote">Book a visit</a>
-        </div>
-      </div>
-      <figure class="report" style="margin:0" aria-label="Example of a treatment report">
-        <div class="report-head"><b>Treatment report</b><span>Example</span></div>
-        <dl>
-          <dt>Found</dt><dd>Cockroaches (kitchen), spiders (eaves)</dd>
-          <dt>Product</dt><dd><i>[product name, as on the label]</i></dd>
-          <dt>Where</dt><dd>Kitchen, eaves, outside edges</dd>
-          <dt>Label says</dt><dd><i>[re-entry, pets and children]</i></dd>
-          <dt>Next check</dt><dd><i>[date]</i></dd>
+        <dl class="doc-grid" aria-label="Example of a treatment report">
+          <div><dt>Found</dt><dd>Cockroaches (kitchen), spiders (eaves)</dd></div>
+          <div><dt>Product</dt><dd><i>[product name, as on the label]</i></dd></div>
+          <div><dt>Where</dt><dd>Kitchen, eaves, outside edges</dd></div>
+          <div><dt>Label says</dt><dd><i>[re-entry, pets and children]</i></dd></div>
+          <div><dt>Next check</dt><dd><i>[date]</i></dd></div>
+          <div><dt>Signed</dt><dd><i>[technician and licence]</i></dd></div>
         </dl>
+        <div class="doc-foot">
+          <span class="rating">★ Your Google rating and review count show here, linked to your listing</span>
+          <div class="hero-cta">
+            <a class="btn btn-amber" href="tel:0400000000">Call 0400 000 000</a>
+            <a class="btn btn-line" href="#quote">Book a visit</a>
+          </div>
+        </div>
         <p class="cap">Illustration. On your site: a real report layout, with details from the product label.</p>
-      </figure>
+      </article>
     </div>
   </section>
 

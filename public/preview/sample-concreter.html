@@ -150,6 +150,25 @@ footer .wrap{display:flex;flex-direction:column;gap:var(--s2)}
 }
 @media (max-width:520px){ .finishes{grid-template-columns:1fr} .steps{grid-template-columns:1fr} .spec-item{padding:var(--s4)} }
 @media (max-width:420px){ .brand{font-size:17px;gap:8px} .brand svg{width:28px;height:28px} .nav-call{padding:0 12px} .wrap{padding-left:16px;padding-right:16px} }
+.hero-slab{background:var(--slab);color:#F2F0EC;padding:var(--s7) 0 0}
+.hero-slab h1{color:#fff;max-width:18ch}
+.hero-slab .eyebrow{color:var(--hivis)}
+.hero-slab .rating{color:#D9D5CD}
+.hero-slab p.lead{color:#D9D5CD;font-size:19px;margin-top:var(--s4);max-width:40ch}
+.hero-slab .btn-line{color:#fff;border-color:#fff;background:transparent}
+.slab-top{display:grid;grid-template-columns:1fr 1.05fr;gap:var(--s6);align-items:end}
+.slab-sub{margin-top:var(--s5);max-width:720px}
+.bignums{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3);margin:0}
+.bignums div{border-top:3px solid var(--hivis);padding-top:var(--s2)}
+.bignums dt{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#D9D5CD}
+.bignums dd{margin:2px 0 0;font-family:var(--display);font-weight:700;font-size:clamp(44px,6vw,72px);line-height:1;color:#fff}
+.bignums dd small{font-size:.36em;margin-left:4px;color:var(--hivis)}
+.bignums span{display:block;font-size:13px;color:#D9D5CD;margin-top:4px}
+.slab-src{font-size:13px;color:#BDB8AE;margin-top:var(--s4);max-width:70ch}
+.slab-strip{margin-top:var(--s5)}
+.slab-strip svg{display:block;width:100%;height:auto;max-height:260px}
+@media (max-width:900px){.slab-top{grid-template-columns:1fr;gap:var(--s4)}}
+@media (max-width:760px){.hero-slab{padding-top:var(--s5)}.hero-slab p.lead{font-size:17px;margin-top:var(--s3)}.bignums dd{font-size:40px}.bignums span{font-size:12px}}
 </style>
 </head>
 <body>
@@ -170,11 +189,20 @@ footer .wrap{display:flex;flex-direction:column;gap:var(--s2)}
 </header>
 
 <main id="top">
-  <section class="hero" aria-labelledby="h1">
-    <div class="wrap hero-grid">
-      <div>
-        <span class="eyebrow">Concreting · Your area</span>
-        <h1 id="h1" style="margin-top:8px">Driveways, paths and slabs, specified in writing.</h1>
+  <section class="hero hero-slab" aria-labelledby="h1">
+    <div class="wrap">
+      <div class="slab-top">
+        <div>
+          <span class="eyebrow">Concreting · Your area</span>
+          <h1 id="h1" style="margin-top:8px">Driveways, paths and slabs, specified in writing.</h1>
+        </div>
+        <dl class="bignums">
+          <div><dt>Thickness for cars</dt><dd>100<small>mm</small></dd><span>minimum, under 3 t</span></div>
+          <div><dt>Strength</dt><dd>20<small>MPa</small></dd><span>at least</span></div>
+          <div><dt>Curing</dt><dd>3<small>days</small></dd><span>at least; 7 within 1 km of the coast</span></div>
+        </dl>
+      </div>
+      <div class="slab-sub">
         <span class="rating">★ Your Google rating and review count show here, linked to your listing</span>
         <p class="lead">Your quote says how thick, how strong, what reinforcement and how long it cures. You know exactly what's going in the ground.</p>
         <div class="hero-cta">
@@ -182,8 +210,10 @@ footer .wrap{display:flex;flex-direction:column;gap:var(--s2)}
           <a class="btn btn-line" href="#quote">Get a quote</a>
         </div>
       </div>
-      <figure class="hero-art" style="margin:0">
-        <svg viewBox="0 26 420 208" role="img" aria-label="Cross-section of a driveway: concrete slab with mesh, on compacted road base">
+      <p class="slab-src">Minimums from the Cement Concrete &amp; Aggregates Australia guide to residential driveways. Your quote shows what we'll actually pour.</p>
+    </div>
+    <figure class="slab-strip" style="margin:0">
+      <svg viewBox="0 26 420 208" role="img" aria-label="Cross-section of a driveway: concrete slab with mesh, on compacted road base">
           <rect x="0" y="0" width="420" height="250" fill="#2B2C29"/>
           <rect x="20" y="56" width="380" height="64" fill="#CFCAC1"/>
           <path d="M20 56h380" stroke="#E9E5DE" stroke-width="3"/>
@@ -195,7 +225,7 @@ footer .wrap{display:flex;flex-direction:column;gap:var(--s2)}
           </g>
           <rect x="20" y="166" width="380" height="54" fill="#5B4636"/>
           <g font-family="Barlow Semi Condensed, Arial Narrow, Arial" font-weight="600" font-size="16" fill="#1C1D1B">
-            <text x="30" y="82">CONCRETE · 100 MM FOR CARS*</text>
+            <text x="30" y="82">CONCRETE · 100 MM FOR CARS</text>
           </g>
           <g font-family="Barlow Semi Condensed, Arial Narrow, Arial" font-weight="600" font-size="16" fill="#F2F0EC">
             <text x="30" y="148">COMPACTED ROAD BASE</text>
@@ -207,9 +237,7 @@ footer .wrap{display:flex;flex-direction:column;gap:var(--s2)}
           </g>
           <path d="M354 42l6 12" stroke="#F07A2E" stroke-width="2"/>
         </svg>
-        <figcaption class="cap">*Minimum for cars under 3 tonnes in the industry guide. Your quote gives the real numbers for your job.</figcaption>
-      </figure>
-    </div>
+    </figure>
   </section>
 
   <div class="wrap"><div class="facts" role="list">

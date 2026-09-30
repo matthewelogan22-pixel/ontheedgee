@@ -132,6 +132,28 @@ footer .wrap{display:flex;flex-direction:column;gap:var(--s2)}
   .hero-cta{margin-top:var(--s4)}
 }
 @media (max-width:420px){ .steps{grid-template-columns:1fr} .price{padding:var(--s4)} }
+.hero-split{display:grid;grid-template-columns:1.1fr .9fr;padding:0;min-height:520px}
+.split-l{background:var(--gold);color:var(--gold-ink);display:flex;align-items:center;justify-content:flex-end}
+.split-in{width:100%;max-width:620px;padding:var(--s7) var(--s6) var(--s7) 20px}
+.split-l .eyebrow{color:var(--gold-ink)}
+.split-l h1{color:var(--gold-ink)}
+.split-l .rating{color:var(--gold-ink);border-color:var(--gold-ink)}
+.split-l p.lead{color:var(--gold-ink);font-size:19px;margin-top:var(--s4);max-width:36ch}
+.btn-ink{background:var(--gold-ink);color:#fff;border-color:var(--gold-ink)}
+.split-l .btn-line{border-color:var(--gold-ink);color:var(--gold-ink);background:transparent}
+.split-r{background:var(--teal-deep);display:flex;align-items:center;justify-content:flex-start;padding:var(--s7) 20px var(--s7) var(--s6)}
+.slip{margin:0;background:#FFFEFA;color:var(--ink);width:100%;max-width:400px;border-radius:6px;padding:var(--s5);transform:rotate(-2deg);box-shadow:0 26px 50px -28px rgba(0,0,0,.7)}
+.slip-head{display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid var(--ink);padding-bottom:var(--s2)}
+.slip-head b{font-family:var(--display);font-size:20px}
+.slip-head span{font-size:13px;color:var(--ink-soft)}
+.slip-lines{list-style:none;margin:0;padding:0}
+.slip-lines li{display:flex;justify-content:space-between;gap:var(--s3);padding:10px 0;border-bottom:1px dashed var(--line);font-size:15px}
+.slip-lines li span:last-child{color:var(--ink-soft);text-align:right}
+.slip-foot{margin-top:var(--s3);font-weight:800;font-family:var(--display)}
+.slip .art-cap{margin-top:var(--s3);font-size:12px;color:var(--ink-soft)}
+@media (max-width:900px){.hero-split{grid-template-columns:1fr;min-height:0}.split-l{justify-content:flex-start}.split-in{max-width:none;padding:var(--s5) 20px}.split-r{justify-content:center;padding:var(--s6) 20px}}
+@media (max-width:760px){.split-l p.lead{font-size:17px;margin-top:var(--s3)}.slip{transform:none}}
+@media (max-width:420px){.split-in{padding:var(--s5) 16px}.split-r{padding:var(--s5) 16px}}
 </style>
 </head>
 <body>
@@ -149,30 +171,32 @@ footer .wrap{display:flex;flex-direction:column;gap:var(--s2)}
 </header>
 
 <main id="top">
-  <section class="hero" aria-labelledby="h1">
-    <div class="wrap hero-grid">
-      <div>
+  <section class="hero hero-split" aria-labelledby="h1">
+    <div class="split-l">
+      <div class="split-in">
         <span class="eyebrow">Removalists · Your town</span>
         <h1 id="h1" style="margin-top:10px">Your move, quoted in writing and done carefully.</h1>
         <span class="rating">★ Your Google rating and review count show here, linked to your listing</span>
         <p class="lead">Houses, units and offices, local or interstate. An itemised quote before we book anything, so there are no moving-day surprises.</p>
         <div class="hero-cta">
-          <a class="btn btn-gold" href="tel:0400000000">Call 0400 000 000</a>
+          <a class="btn btn-ink" href="tel:0400000000">Call 0400 000 000</a>
           <a class="btn btn-line" href="#quote">Get a quote</a>
         </div>
       </div>
-      <div class="hero-art" aria-hidden="true">
-        <svg viewBox="0 0 400 300" role="presentation">
-          <rect x="0" y="238" width="400" height="62" fill="#163A47"/>
-          <rect x="40" y="96" width="200" height="130" rx="10" fill="#F7F4EE"/>
-          <rect x="60" y="116" width="46" height="40" rx="4" fill="#E6D7B8"/><rect x="112" y="116" width="46" height="40" rx="4" fill="#DCC9A2"/><rect x="164" y="116" width="56" height="40" rx="4" fill="#E6D7B8"/>
-          <rect x="60" y="162" width="70" height="46" rx="4" fill="#DCC9A2"/><rect x="136" y="162" width="84" height="46" rx="4" fill="#E6D7B8"/>
-          <path d="M240 136h70l40 42v48H240z" fill="#F2B33D"/><path d="M256 150h46l24 26h-70z" fill="#163A47"/>
-          <circle cx="104" cy="232" r="24" fill="#16242B"/><circle cx="104" cy="232" r="10" fill="#B9B2A4"/>
-          <circle cx="300" cy="232" r="24" fill="#16242B"/><circle cx="300" cy="232" r="10" fill="#B9B2A4"/>
-          <text x="140" y="84" fill="#F2B33D" font-family="Archivo, Arial" font-weight="800" font-size="20" text-anchor="middle">LARKSPUR REMOVALS</text>
-        </svg>
-      </div>
+    </div>
+    <div class="split-r">
+      <figure class="slip" aria-label="Example layout of a written removal quote">
+        <div class="slip-head"><b>Your written quote</b><span>Example layout</span></div>
+        <ul class="slip-lines">
+          <li><span>Truck and crew</span><span>by the hour or fixed</span></li>
+          <li><span>Travel to and from</span><span>listed</span></li>
+          <li><span>Packing materials</span><span>listed</span></li>
+          <li><span>Stairs, lifts, pianos</span><span>listed</span></li>
+          <li><span>Insurance for your things</span><span>what's covered</span></li>
+        </ul>
+        <div class="slip-foot">In writing before you book</div>
+        <figcaption class="art-cap">Illustration. On your site: how your real quotes are set out.</figcaption>
+      </figure>
     </div>
   </section>
 
