@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pest Control in Your Area | Pardalote Pest Control (sample)</title>
+<meta name="description" content="Sample website for a local pest controller: general pests, termite inspections and rodents, with a written report after every visit. Built by On The Edge.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23183A2F'/%3E%3Ccircle cx='30' cy='34' r='14' fill='%23E3A21A'/%3E%3Ccircle cx='42' cy='24' r='7' fill='%23F4F0E6'/%3E%3Cpath d='M47 24l8-3-7 6z' fill='%23E3A21A'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#17231E; --ink-soft:#4A5751; --paper:#F4F0E6; --card:#FFFFFF; --line:#DCD5C5;
+  --gum:#183A2F; --gum-2:#21493C; --leaf:#2F6B4F; --amber:#E3A21A; --amber-ink:#1C1400; --note:#FFF4D6;
+  --r:10px; --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px; --s6:32px; --s7:48px; --s8:72px;
+  --display:"Epilogue", "Segoe UI", Arial, sans-serif;
+  --body:system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --mono:ui-monospace, "Cascadia Mono", Consolas, monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55}
+a{color:var(--leaf)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+.wrap{width:100%;max-width:1100px;margin:0 auto;padding-left:20px;padding-right:20px}
+h1,h2,h3{font-family:var(--display);line-height:1.06;margin:0;text-wrap:balance;letter-spacing:-.02em}
+h1{font-size:clamp(32px,7.4vw,58px);font-weight:800}
+h2{font-size:clamp(27px,5vw,42px);font-weight:800}
+h3{font-size:19px;font-weight:700;letter-spacing:-.01em}
+p{margin:0}
+.eyebrow{font-weight:700;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--leaf)}
+.sample-note{background:var(--ink);color:#E4E9E6;font-size:14px;text-align:center;padding:8px 16px}
+.sample-note a{color:#fff;font-weight:600}
+.season{background:var(--amber);color:var(--amber-ink);font-size:15px;font-weight:600;text-align:center;padding:8px 16px}
+.season a{color:var(--amber-ink);font-weight:800}
+.season .short{display:none}
+header.nav{position:sticky;top:0;z-index:50;background:rgba(244,240,230,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:var(--s3);min-height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-family:var(--display);font-weight:800;font-size:20px;white-space:nowrap;letter-spacing:-.03em}
+.brand svg{flex:none}
+.nav-right{display:flex;align-items:center;gap:var(--s4)}
+.nav-lic{font-size:13px;color:var(--ink-soft)}
+.nav-call{white-space:nowrap;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;border-radius:var(--r);background:var(--gum);color:#fff;text-decoration:none;font-weight:700;font-size:15px}
+.hero{padding:var(--s6) 0 var(--s7)}
+.hero-grid{display:grid;gap:var(--s6);grid-template-columns:1.1fr .9fr;align-items:center}
+.hero p.lead{font-size:19px;color:var(--ink-soft);margin-top:var(--s4);max-width:36ch}
+.hero-cta{display:flex;flex-wrap:wrap;gap:var(--s3);margin-top:var(--s5)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:0 22px;border-radius:var(--r);font-weight:800;font-size:17px;text-decoration:none;border:2px solid transparent;cursor:pointer;font-family:var(--body)}
+.btn-amber{background:var(--amber);color:var(--amber-ink);border-color:var(--amber-ink)}
+.btn-line{background:transparent;color:var(--ink);border-color:var(--ink)}
+.rating{margin-top:var(--s3);display:inline-block;font-size:15px;color:var(--ink-soft);border:1px dashed currentColor;border-radius:var(--r);padding:6px 10px}
+.report{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:0 18px 40px -24px rgba(23,35,30,.45);overflow:hidden;font-size:15px}
+.report-head{background:var(--gum);color:#fff;padding:14px 18px;display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.report-head b{font-family:var(--display);font-size:17px;letter-spacing:-.01em}
+.report-head span{font-size:13px;color:#BFD3C8}
+.report dl{margin:0;display:grid;grid-template-columns:auto 1fr}
+.report dt,.report dd{margin:0;padding:10px 18px;border-top:1px solid #EEE9DD}
+.report dt{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);padding-right:8px}
+.report dd{font-family:var(--mono);font-size:14px;color:var(--ink)}
+.report dd i{font-style:normal;color:#8A8577}
+.report .cap{font-size:13px;color:var(--ink-soft);padding:10px 18px;border-top:1px dashed var(--line);background:#FBF9F4}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+.fact{padding:var(--s4) var(--s4) var(--s4) 0}
+.fact+.fact{padding-left:var(--s4);border-left:1px solid var(--line)}
+.fact .k{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.fact .v{font-family:var(--display);font-weight:700;font-size:18px;margin-top:2px}
+section{padding:var(--s8) 0}
+.sec-head{display:flex;flex-direction:column;gap:var(--s2);margin-bottom:var(--s5);max-width:660px}
+.sec-head p{color:var(--ink-soft)}
+.badge{display:inline-block;background:var(--note);color:var(--amber-ink);font-weight:800;font-size:13px;padding:4px 10px;border-radius:6px;border:1px solid var(--amber);width:max-content}
+.svc{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s4)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:var(--s5);display:flex;flex-direction:column;gap:var(--s2)}
+.card .ico{width:40px;height:40px;border-radius:10px;background:#E6EFE9;display:grid;place-items:center}
+.card p{color:var(--ink-soft);font-size:16px}
+.card .go{margin-top:auto;padding-top:var(--s2);font-weight:700}
+.termites{background:var(--gum);color:#E4E9E6}
+.termites h2{color:#fff}
+.termites .eyebrow{color:var(--amber)}
+.termites .sec-head p{color:#BFD3C8}
+.t-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s4)}
+.t-item{background:var(--gum-2);border-radius:var(--r);padding:var(--s5);display:flex;flex-direction:column;gap:var(--s2)}
+.t-item h3{color:#fff}
+.t-item p{color:#C9D9D0;font-size:16px}
+.t-item blockquote{margin:0;border-left:3px solid var(--amber);padding-left:12px;color:#fff;font-size:16px}
+.t-item .ph{font-size:14px;color:#F2CC73;border-top:1px dashed rgba(227,162,26,.5);padding-top:var(--s2)}
+.src{font-size:13px;color:#9FB8AB;margin-top:var(--s4)}
+.src a{color:#E4E9E6}
+.price-list{display:grid;background:var(--card);border:1px solid var(--line);border-radius:var(--r);max-width:780px}
+.price{display:grid;grid-template-columns:1fr auto;gap:4px var(--s4);padding:var(--s4) var(--s5);border-top:1px solid var(--line)}
+.price:first-child{border-top:0}
+.price .amt{font-family:var(--display);font-weight:800;font-size:22px;white-space:nowrap}
+.price .d{grid-column:1/-1;color:var(--ink-soft);font-size:15px}
+.small{font-size:14px;color:var(--ink-soft);margin-top:var(--s3);max-width:780px}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s4)}
+.rev{background:var(--card);border:1px dashed var(--line);border-radius:var(--r);padding:var(--s5);display:flex;flex-direction:column;gap:var(--s2)}
+.rev .stars{color:#B9B2A4;letter-spacing:2px}
+.rev p{color:var(--ink-soft);font-size:15px}
+.chips{display:flex;flex-wrap:wrap;gap:var(--s2)}
+.chip{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:6px 14px;font-size:15px}
+.faq{max-width:780px;display:flex;flex-direction:column}
+details{border-top:1px solid var(--line);padding:var(--s4) 0}
+details:last-child{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;font-weight:700;font-size:18px;list-style:none;display:flex;justify-content:space-between;gap:var(--s3)}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--display);font-size:24px;color:var(--leaf)}
+details[open] summary::after{content:"–"}
+details p{margin-top:var(--s2);color:var(--ink-soft)}
+details p.ph{font-size:14px;color:#8A6400}
+.quote{background:#E6EFE9}
+.quote-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:var(--s6);align-items:start}
+.contact-list{display:flex;flex-direction:column;gap:var(--s3);font-size:17px}
+.contact-list a{color:var(--ink);font-weight:700}
+.contact-list .k{display:block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.photo-tip{margin-top:var(--s5);background:var(--card);border-left:4px solid var(--amber);border-radius:6px;padding:var(--s4);font-size:16px}
+.photo-tip a{font-weight:700}
+form{background:var(--card);color:var(--ink);border-radius:var(--r);padding:var(--s5);display:flex;flex-direction:column;gap:var(--s3);border:1px solid var(--line)}
+label{font-weight:700;font-size:15px;display:flex;flex-direction:column;gap:6px}
+label span.opt{font-weight:400;color:var(--ink-soft)}
+input,select{font:inherit;font-size:17px;min-height:48px;padding:0 12px;border:1.5px solid #B5AE9F;border-radius:8px;background:#fff;color:var(--ink);width:100%}
+.form-note{font-size:14px;color:var(--ink-soft)}
+.sent{display:none;background:var(--note);border:1px solid var(--amber);border-radius:8px;padding:var(--s3);font-weight:600}
+footer{padding:var(--s6) 0 calc(var(--s6) + 20px);font-size:14px;color:var(--ink-soft)}
+footer .wrap{display:flex;flex-direction:column;gap:var(--s2)}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:90;display:none;gap:8px;background:var(--paper);border-top:1px solid var(--line);padding:10px 12px calc(10px + env(safe-area-inset-bottom));box-shadow:0 -8px 24px -12px rgba(23,35,30,.3)}
+.callbar a{flex:1;display:flex;align-items:center;justify-content:center;min-height:48px;border-radius:var(--r);font-weight:800;font-size:17px;text-decoration:none;color:var(--ink);border:2px solid var(--line);background:#fff}
+.callbar a.primary{background:var(--amber);border-color:var(--amber-ink)}
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr}
+  .report{max-width:480px}
+  .svc{grid-template-columns:1fr 1fr}
+  .rev-grid{grid-template-columns:1fr}
+  .quote-grid{grid-template-columns:1fr}
+  .t-grid{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  .callbar{display:flex}
+  body{padding-bottom:78px}
+  html{scroll-padding-bottom:88px;scroll-padding-top:72px}
+  .facts{grid-template-columns:repeat(2,1fr)}
+  .fact:nth-child(3){padding-left:0;border-left:0}
+  .fact:nth-child(n+3){border-top:1px solid var(--line)}
+  section{padding:var(--s7) 0}
+  .hero{padding:var(--s5) 0 var(--s6)}
+  .nav-call .num,.nav-lic{display:none}
+  .hero p.lead{font-size:17px;margin-top:var(--s3)}
+  .hero-cta{margin-top:var(--s4)}
+  .season{font-size:14px;padding:6px 12px}
+  .season .long{display:none} .season .short{display:inline}
+}
+@media (max-width:560px){ .svc{grid-template-columns:1fr} }
+@media (max-width:420px){ .brand{font-size:17px;gap:8px} .brand svg{width:28px;height:28px} .nav-call{padding:0 12px} .wrap{padding-left:16px;padding-right:16px} .price{padding:var(--s4)} .report dt,.report dd{padding:9px 12px} }
+</style>
+</head>
+<body>
+
+<div class="sample-note">Sample site by <a href="https://ontheedge.app" target="_blank" rel="noopener">On The Edge</a>. Pardalote Pest Control is a made-up business, built to show what a pest controller's website could look like.</div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top" aria-label="Pardalote Pest Control, home">
+      <svg width="32" height="32" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#183A2F"/><circle cx="30" cy="34" r="14" fill="#E3A21A"/><circle cx="42" cy="24" r="7" fill="#F4F0E6"/><path d="M47 24l8-3-7 6z" fill="#E3A21A"/></svg>
+      Pardalote Pest Control
+    </a>
+    <div class="nav-right">
+      <span class="nav-lic">Lic. no. [your licence]</span>
+      <a class="nav-call" href="tel:0400000000"><span aria-hidden="true">☎</span> <span>Call</span><span class="num"> 0400 000 000</span></a>
+    </div>
+  </div>
+</header>
+<div class="season"><span class="long">Seen flying termites this spring? </span><span class="short">Flying termites? </span><a href="#quote"><span class="long">Book a termite inspection</span><span class="short">Book an inspection</span></a></div>
+
+<main id="top">
+  <section class="hero" aria-labelledby="h1">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Pest control · Your area</span>
+        <h1 id="h1" style="margin-top:8px">Pest control that tells you what it used, and where.</h1>
+        <span class="rating">★ Your Google rating and review count show here, linked to your listing</span>
+        <p class="lead">General pests, termites and rodents. After every visit you get a written report, so you know exactly what was done in your home.</p>
+        <div class="hero-cta">
+          <a class="btn btn-amber" href="tel:0400000000">Call 0400 000 000</a>
+          <a class="btn btn-line" href="#quote">Book a visit</a>
+        </div>
+      </div>
+      <figure class="report" style="margin:0" aria-label="Example of a treatment report">
+        <div class="report-head"><b>Treatment report</b><span>Example</span></div>
+        <dl>
+          <dt>Found</dt><dd>Cockroaches (kitchen), spiders (eaves)</dd>
+          <dt>Product</dt><dd><i>[product name, as on the label]</i></dd>
+          <dt>Where</dt><dd>Kitchen, eaves, outside edges</dd>
+          <dt>Label says</dt><dd><i>[re-entry, pets and children]</i></dd>
+          <dt>Next check</dt><dd><i>[date]</i></dd>
+        </dl>
+        <p class="cap">Illustration. On your site: a real report layout, with details from the product label.</p>
+      </figure>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="facts" role="list">
+    <div class="fact" role="listitem"><div class="k">Licence</div><div class="v">[your licence no.]</div></div>
+    <div class="fact" role="listitem"><div class="k">After each visit</div><div class="v">Written report</div></div>
+    <div class="fact" role="listitem"><div class="k">Termites</div><div class="v">Inspections · treatment</div></div>
+    <div class="fact" role="listitem"><div class="k">Properties</div><div class="v">Homes · units · shops</div></div>
+  </div></div>
+
+  <section id="services" aria-labelledby="h-svc">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">What we treat</span>
+        <h2 id="h-svc">The pests that bring people to us.</h2>
+        <p>Only list what you actually do. For the sample, it looks like this:</p>
+      </div>
+      <div class="svc">
+        <div class="card"><div class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24"><ellipse cx="12" cy="13" rx="5" ry="7" fill="#2F6B4F"/><path d="M7 9L3 6M17 9l4-3M7 14H2M17 14h5M8 18l-3 3M16 18l3 3" stroke="#2F6B4F" stroke-width="1.8" stroke-linecap="round"/></svg></div><h3>General pests</h3><p>Cockroaches, spiders and ants, inside and out.</p><a class="go" href="#quote" data-problem="General pests">Book a treatment</a></div>
+        <div class="card"><div class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24"><path d="M4 20V9l8-5 8 5v11z" fill="none" stroke="#2F6B4F" stroke-width="2"/><circle cx="12" cy="14" r="3" fill="#E3A21A"/></svg></div><h3>Termite inspections</h3><p>Roof void, subfloor, walls, fences and garden, with photos in a written report.</p><a class="go" href="#quote" data-problem="Termite inspection">Book an inspection</a></div>
+        <div class="card"><div class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24"><path d="M3 18h18M5 18V8h14v10" fill="none" stroke="#2F6B4F" stroke-width="2"/><path d="M8 12h8" stroke="#E3A21A" stroke-width="3"/></svg></div><h3>Termite treatment</h3><p>If an inspection finds termites, a written plan: what we'd use, where, and what it costs.</p><a class="go" href="#quote" data-problem="Termite treatment">Ask about treatment</a></div>
+        <div class="card"><div class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24"><ellipse cx="11" cy="14" rx="7" ry="5" fill="#2F6B4F"/><circle cx="17" cy="10" r="2.5" fill="#2F6B4F"/><path d="M4 15c-3 1-3 4 0 5" stroke="#2F6B4F" stroke-width="1.8" fill="none"/></svg></div><h3>Rats and mice</h3><p>Where they're getting in, not just baits in the roof.</p><a class="go" href="#quote" data-problem="Rats or mice">Book a visit</a></div>
+        <div class="card"><div class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2" fill="none" stroke="#2F6B4F" stroke-width="2"/><path d="M8 8h8M8 12h8M8 16h5" stroke="#E3A21A" stroke-width="2"/></svg></div><h3>Pre-purchase reports</h3><p>A timber pest report before you buy, while there's still time to negotiate.</p><a class="go" href="#quote" data-problem="Pre-purchase report">Book a report</a></div>
+        <div class="card"><div class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24"><path d="M12 3l7 4v6c0 4-3 7-7 8-4-1-7-4-7-8V7z" fill="none" stroke="#2F6B4F" stroke-width="2"/><path d="M9 12l2 2 4-4" stroke="#E3A21A" stroke-width="2" fill="none"/></svg></div><h3>Wasps and bees</h3><p>Wasp nests removed. Bee swarms go to a local beekeeper where we can.</p><a class="go" href="#quote" data-problem="Something else">Ask about it</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="termites" id="termites" aria-labelledby="h-term">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Termites</span>
+        <h2 id="h-term">Why a yearly inspection is worth it.</h2>
+        <p>Termites usually work out of sight, inside timber. Here's what's worth knowing before you find any.</p>
+      </div>
+      <div class="t-grid">
+        <div class="t-item"><h3>Your insurance may not cover it</h3><p>Many home insurance policies exclude termite damage. Suncorp, for example, says:</p><blockquote>"Suncorp Insurance doesn't cover damage caused by insects, vermin or rodents."</blockquote><p>Check your own policy.</p></div>
+        <div class="t-item"><h3>Once a year is the usual advice</h3><p>Most homes should be inspected at least once a year. Suncorp's own tip is regular pest inspections, "ideally annually".</p></div>
+        <div class="t-item"><h3>What we check</h3><p>The roof void, subfloor, walls, fences, trees and garden edges: anywhere termites travel or feed. Everything we find goes in a written report with photos.</p><p class="ph">On your site: your tools, and the standard you inspect to (for example AS 3660.2), only if you do.</p></div>
+        <div class="t-item"><h3>Buying a home?</h3><p>Get a timber pest report before you're committed to buy, while there's still time to negotiate or walk away.</p></div>
+      </div>
+      <p class="src">Source for the insurance quote and the "ideally annually" tip: Suncorp, "Is animal damage covered by home insurance?"</p>
+    </div>
+  </section>
+
+  <section id="prices" aria-labelledby="h-prices">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="badge">Example prices</span>
+        <h2 id="h-prices">What it usually costs.</h2>
+        <p>The real price depends on the size of the home and what we find. These give you a starting point.</p>
+      </div>
+      <div class="price-list">
+        <div class="price"><div><h3>General pest treatment</h3></div><div class="amt">from $180*</div><div class="d">A standard house, inside and outside.</div></div>
+        <div class="price"><div><h3>Termite inspection</h3></div><div class="amt">from $250*</div><div class="d">Written report with photos.</div></div>
+        <div class="price"><div><h3>Pre-purchase timber pest report</h3></div><div class="amt">from $400*</div><div class="d">Before you're committed to buy.</div></div>
+        <div class="price"><div><h3>Termite treatment</h3></div><div class="amt">on quote</div><div class="d">After an inspection, with a written plan.</div></div>
+      </div>
+      <p class="small">*Example prices for this sample site. On your site: your real prices.</p>
+    </div>
+  </section>
+
+  <section class="reviews" id="reviews" aria-labelledby="h-reviews" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Reviews</span>
+        <h2 id="h-reviews">What people say after.</h2>
+        <p>These spots are placeholders. On your site, they fill with your real Google reviews, so a new customer sees them before they call.</p>
+      </div>
+      <div class="rev-grid">
+        <div class="rev"><div class="stars" aria-hidden="true">★★★★★</div><h3>Your Google reviews show here</h3><p>Real words from real customers, with their star rating and the date.</p></div>
+        <div class="rev"><div class="stars" aria-hidden="true">★★★★★</div><h3>Your Google reviews show here</h3><p>Reviews that mention explaining things clearly carry a lot of weight in pest control.</p></div>
+        <div class="rev"><div class="stars" aria-hidden="true">★★★★★</div><h3>Your Google reviews show here</h3><p>More reviews help you show up when someone searches "pest control near me".</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="area" aria-labelledby="h-area" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Where we work</span>
+        <h2 id="h-area">Your area and the suburbs around it.</h2>
+        <p>Your real suburbs and towns go here, so Google knows exactly where to show you. For the sample, it looks like this:</p>
+      </div>
+      <div class="chips"><span class="chip">Town centre</span><span class="chip">Older suburbs</span><span class="chip">Bush-edge streets</span><span class="chip">New estates</span><span class="chip">Nearby towns</span></div>
+    </div>
+  </section>
+
+  <section id="faq" aria-labelledby="h-faq" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Before you book</span>
+        <h2 id="h-faq">Questions people ask.</h2>
+      </div>
+      <div class="faq">
+        <details><summary>Is the treatment safe for my kids and pets?</summary><p>Before we start, we'll tell you which product we're using and what its label says about children, pets and when it's OK to go back in. It's all in your written report too.</p><p class="ph">On your site: your answer, in your words. No "non-toxic" or "safe for pets" claims unless you can back them up.</p></details>
+        <details><summary>Does home insurance cover termite damage?</summary><p>Often not. Many policies exclude damage caused by insects, including termites, so check yours.</p></details>
+        <details><summary>How often should I get a termite inspection?</summary><p>Most homes should be inspected at least once a year. Your inspector may suggest more often if there's a risk nearby.</p></details>
+        <details><summary>Are you licensed?</summary><p>Yes. Our licence number is at the top of this page and on every report, and you can check it on the state's public register.</p><p class="ph">On your site: your real licence number, checked on the register.</p></details>
+        <details><summary>Do I need to leave the house?</summary><p>It depends on the job and the product. We'll tell you when you book, so you can plan around it.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="quote" id="quote" aria-labelledby="h-quote">
+    <div class="wrap quote-grid">
+      <div>
+        <div class="sec-head">
+          <span class="eyebrow">Book a visit</span>
+          <h2 id="h-quote">Tell us what you're seeing.</h2>
+          <p>Five quick details. On your site: your real reply time, only if you can keep it.</p>
+        </div>
+        <div class="contact-list">
+          <div><span class="k">Call</span><a href="tel:0400000000">0400 000 000</a></div>
+          <div><span class="k">Text</span><a href="sms:0400000000">0400 000 000</a></div>
+          <div><span class="k">Email</span><a href="mailto:hello@example.com.au">hello@example.com.au</a></div>
+        </div>
+        <p class="photo-tip">Not sure what it is? <a href="sms:0400000000">Text us a photo</a> of the insect, droppings or damage.</p>
+      </div>
+      <form id="quote-form" novalidate>
+        <label for="f-name">Your name<input id="f-name" name="name" type="text" autocomplete="name" required></label>
+        <label for="f-phone">Mobile<input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required></label>
+        <label for="f-suburb">Suburb<input id="f-suburb" name="suburb" type="text" autocomplete="address-level2" required></label>
+        <label for="f-problem">What do you need?
+          <select id="f-problem" name="problem" required><option value="">Choose one</option><option>General pests</option><option>Termite inspection</option><option>Termite treatment</option><option>Rats or mice</option><option>Pre-purchase report</option><option>Something else</option></select>
+        </label>
+        <label for="f-home">Home type <span class="opt">(optional)</span>
+          <select id="f-home" name="home"><option value="">Choose one</option><option>House</option><option>Unit or townhouse</option><option>Business</option></select>
+        </label>
+        <button class="btn btn-amber" type="submit">Book a visit</button>
+        <p class="sent" id="sent" role="status">Sample form: nothing is sent. On your site, your details go to the business.</p>
+        <p class="form-note">Your details are only used to reply to your request.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Pardalote Pest Control is a sample business. Nothing here is a real booking. On your site: your licensed name, licence number and ABN go here.</p>
+    <p>Sample site by <a href="https://ontheedge.app" target="_blank" rel="noopener">On The Edge</a>.</p>
+  </div>
+</footer>
+
+<nav class="callbar" aria-label="Quick contact">
+  <a class="primary" href="#quote">Book</a>
+  <a href="tel:0400000000">Call</a>
+  <a href="sms:0400000000">Text</a>
+</nav>
+
+<script>
+document.querySelectorAll('[data-problem]').forEach(function (a) {
+  a.addEventListener('click', function () { document.getElementById('f-problem').value = a.getAttribute('data-problem'); });
+});
+document.getElementById('quote-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+  var f = e.target, ok = true;
+  ['f-name','f-phone','f-suburb','f-problem'].forEach(function (id) { var el = document.getElementById(id); if (!el.value.trim()) { ok = false; el.setAttribute('aria-invalid','true'); } else { el.removeAttribute('aria-invalid'); } });
+  if (!ok) { f.querySelector('[aria-invalid="true"]').focus(); return; }
+  document.getElementById('sent').style.display = 'block';
+});
+</script>
+</body>
+</html>
