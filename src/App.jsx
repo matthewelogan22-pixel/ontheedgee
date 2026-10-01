@@ -1536,7 +1536,7 @@ function Packages() {
         'Google Business Profile claimed and verified',
         'Right categories, services and suburbs',
         'Photos, hours and description done properly',
-        'Review QR code and text link for happy customers',
+        'Review QR code and text link to send every customer',
         'Credited to Get Found if you upgrade within 60 days',
       ],
       highlight: false,
@@ -1546,7 +1546,7 @@ function Packages() {
       name: 'Get Found',
       tagline: 'Website, Google Maps and reviews, done for you.',
       price: '$149/mo',
-      priceNote: '+ $299 setup · 12-month plan',
+      priceNote: '+ $299 setup · 12-month plan · $2,087 all up for the year',
       features: [
         'Everything in Google Profile Fix',
         'Custom website (up to 5 pages) on your own domain',
