@@ -259,7 +259,7 @@ function Navbar() {
         >
           <div className="flex items-center justify-between mb-10">
             <span className="font-display font-bold text-xl text-ink">On The Edge</span>
-            <button onClick={() => setOpen(false)} className="p-2 rounded-full bg-divider/40">
+            <button onClick={() => setOpen(false)} aria-label="Close menu" className="p-2 rounded-full bg-divider/40">
               <X className="h-5 w-5 text-ink" />
             </button>
           </div>

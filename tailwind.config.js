@@ -14,7 +14,7 @@ export default {
         background: '#F5F5F7',
         surface: '#FFFFFF',
         ink: '#1C1D22',
-        muted: '#6B7280',
+        muted: '#68707D',  // 4.59:1 on #f5f5f7 (was #6B7280, 4.44:1)
         divider: '#E2E4E8',
         deep: '#121316',
       },
