@@ -280,6 +280,7 @@
   .concept-badge b{color:#fff;font-weight:700}
 @media (max-width:760px){.concept-badge{bottom:88px}}
   .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media (max-width:760px){.concept-badge{display:none}}
 </style>
 </head>
 <body>
@@ -575,7 +576,7 @@
       e.preventDefault();
       var f=e.target, v=function(n){return (f.elements[n].value||'').trim();};
       var body='Name: '+v('name')+'\nMobile: '+v('phone')+'\nPickup suburb: '+v('pickup')+'\nLesson or pack: '+v('pack')+'\nPreferred time: '+v('time');
-      window.location.href='mailto:hello@example.com.au?subject='+encodeURIComponent('Lesson booking request'+(v('name')?' from '+v('name'):''))+'&body='+encodeURIComponent(body);
+      var n=f.querySelector('.sample-sent');if(!n){n=document.createElement('p');n.className='sample-sent';n.setAttribute('role','status');n.style.cssText='margin:12px 0 0;font-weight:600';f.appendChild(n);}n.textContent='Sample form: nothing is sent. On your site, your details go to the business.';
     });
   })();
 </script>

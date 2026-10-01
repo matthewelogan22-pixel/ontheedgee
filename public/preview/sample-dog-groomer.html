@@ -256,6 +256,7 @@
   .concept-badge:active{transform:scale(.97)}
   .concept-badge b{color:#fff;font-weight:700}
 @media (max-width:760px){.concept-badge{bottom:88px}}
+@media (max-width:760px){.concept-badge{display:none}}
 </style>
 </head>
 <body>
@@ -512,7 +513,7 @@
       e.preventDefault();
       var f=e.target, v=function(n){return (f.elements[n].value||'').trim();};
       var body='Name: '+v('name')+'\nMobile: '+v('phone')+'\nDog: '+v('dog')+'\nService: '+v('service')+'\nPreferred day: '+v('day');
-      window.location.href='mailto:hello@example.com.au?subject='+encodeURIComponent('Grooming enquiry'+(v('dog')?' for '+v('dog'):''))+'&body='+encodeURIComponent(body);
+      var n=f.querySelector('.sample-sent');if(!n){n=document.createElement('p');n.className='sample-sent';n.setAttribute('role','status');n.style.cssText='margin:12px 0 0;font-weight:600';f.appendChild(n);}n.textContent='Sample form: nothing is sent. On your site, your details go to the business.';
     });
   })();
 </script>
