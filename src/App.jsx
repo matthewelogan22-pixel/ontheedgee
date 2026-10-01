@@ -339,7 +339,7 @@ function Hero() {
 
       {/* Content */}
       <div className="relative z-10 flex min-h-[100dvh] flex-col items-center justify-center text-center">
-        <div className="px-6 sm:px-10 lg:px-16 max-w-5xl">
+        <div className="w-full px-6 sm:px-10 lg:px-16 max-w-5xl">
           <p className="hero-meta font-mono text-xs uppercase tracking-[0.3em] text-white/50 mb-8">
             Built for Small Business &nbsp;·&nbsp; Website &amp; Marketing Studio
           </p>
@@ -1528,40 +1528,46 @@ function Packages() {
   const tiers = [
     {
       Icon: Rocket,
-      name: 'Launch',
-      tagline: 'For businesses that just need a great site.',
+      name: 'Google Profile Fix',
+      tagline: 'Show up on Google Maps when locals search.',
+      price: '$350',
+      priceNote: 'one-off · set up this week',
       features: [
-        'Custom-designed website (up to 5 pages)',
-        'Mobile & speed optimised',
-        'Contact & booking forms',
-        'Basic on-page SEO',
-        'Live in about 7 days',
+        'Google Business Profile claimed and verified',
+        'Right categories, services and suburbs',
+        'Photos, hours and description done properly',
+        'Review QR code and text link for happy customers',
+        'Credited to Get Found if you upgrade within 60 days',
       ],
       highlight: false,
     },
     {
       Icon: TrendingUp,
-      name: 'Grow',
-      tagline: 'A site that keeps running itself.',
+      name: 'Get Found',
+      tagline: 'Website, Google Maps and reviews, done for you.',
+      price: '$149/mo',
+      priceNote: '+ $299 setup · 12-month plan',
       features: [
-        'Everything in Launch',
-        'eCommerce or booking system',
-        'Ongoing hosting, updates & backups',
-        'Content and copy edits as you need them',
-        'Priority turnaround on requests',
+        'Everything in Google Profile Fix',
+        'Custom website (up to 5 pages) on your own domain',
+        'Tap-to-call, quote form and your Google rating up front',
+        'Hosting, SSL and edits within 2 business days',
+        'No real enquiry in 90 days? The monthly pauses until one comes',
       ],
       highlight: true,
     },
     {
       Icon: Sparkles,
-      name: 'Scale',
-      tagline: 'For bigger builds and custom needs.',
+      name: 'Own It',
+      tagline: 'Rather pay once and own the site outright?',
+      price: '$1,500',
+      priceNote: 'once · then $49/mo care, no contract',
       features: [
-        'Everything in Grow',
-        'Multi-page or multi-location builds',
-        'Custom integrations (booking, payments, calendars)',
-        'New features added as the business grows',
-        'Direct line to Matt for ongoing changes',
+        'The same custom website, yours outright',
+        'Your domain and your files',
+        'Hosting, backups and small edits for $49/mo',
+        'Booking and deposits through Square or Fresha',
+        'Direct line to Matt for changes',
       ],
       highlight: false,
     },
@@ -1578,12 +1584,12 @@ function Packages() {
             <span className="block font-serif italic font-medium text-primary mt-1">starting point.</span>
           </h2>
           <p className="text-muted text-lg mt-6 max-w-xl mx-auto leading-relaxed">
-            Every project is scoped to your business — here's roughly where most clients land. Get a quote in 24 hours.
+            Fixed prices, no GST added. You see your site before you pay a cent.
           </p>
           <div className="inline-flex items-center gap-2.5 mt-6 bg-primary/8 border border-primary/20 rounded-full px-5 py-2.5">
             <ShieldCheck className="h-4 w-4 text-primary flex-shrink-0" strokeWidth={2} />
             <span className="text-sm font-medium text-ink">
-              Every build starts with a <span className="text-primary font-semibold">free first month</span> — no card required, pay only if you decide to keep it.
+              See it before you pay. If it hasn't brought you a <span className="text-primary font-semibold">real enquiry in 90 days</span>, the monthly pauses until it does.
             </span>
           </div>
         </div>
@@ -1612,7 +1618,11 @@ function Packages() {
               </div>
 
               <h3 className="font-display font-bold text-2xl mb-1.5">{tier.name}</h3>
-              <p className={`text-sm mb-6 ${tier.highlight ? 'text-white/55' : 'text-muted'}`}>{tier.tagline}</p>
+              <p className={`text-sm mb-5 ${tier.highlight ? 'text-white/55' : 'text-muted'}`}>{tier.tagline}</p>
+              <div className="mb-6">
+                <span className="font-display font-extrabold text-4xl tracking-tight">{tier.price}</span>
+                <p className={`text-xs mt-1.5 font-mono uppercase tracking-wider ${tier.highlight ? 'text-white/50' : 'text-muted'}`}>{tier.priceNote}</p>
+              </div>
 
               <ul className="space-y-3 mb-8 flex-1">
                 {tier.features.map((f) => (
@@ -1629,7 +1639,7 @@ function Packages() {
                   tier.highlight ? 'bg-warm text-white shadow-lg shadow-warm/30' : 'bg-primary/10 text-primary border border-primary/25 hover:bg-primary hover:text-white'
                 }`}
               >
-                Get a Quote
+                Get Started
                 <ArrowRight className="h-4 w-4" />
               </a>
             </article>
@@ -1692,7 +1702,7 @@ function ContactForm() {
   }
 
   return (
-    <section id="contact" className="relative py-14 sm:py-20 px-6 sm:px-10 lg:px-16 bg-background">
+    <section id="contact" className="relative overflow-hidden py-14 sm:py-20 px-6 sm:px-10 lg:px-16 bg-background">
       <div className="absolute -top-20 left-1/2 -translate-x-1/2 h-64 w-[40rem] rounded-full bg-primary/8 blur-3xl pointer-events-none" />
       <div className="max-w-7xl mx-auto relative">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
