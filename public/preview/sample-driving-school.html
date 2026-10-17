@@ -610,7 +610,7 @@
 <script>
   (function(){
     document.documentElement.classList.add('js');
-    // A fact still waiting on the owner ([owner to confirm: ...]) stays in the source for the go-live check, but
+    // A fact still waiting on the owner (a bracketed slot) stays in the source for the go-live check, but
     // isn't shown: a strip of brackets under the hero reads as unfinished. The strip goes once none are left.
     var facts=document.querySelector('.facts');
     if(facts){ [].forEach.call(facts.querySelectorAll('.fact'),function(f){ var v=f.querySelector('.v'); if(v&&/^\s*\[/.test(v.textContent)) f.hidden=true; });
