@@ -1573,6 +1573,14 @@ function Packages() {
     },
   ]
 
+  // Quick jobs Matt approved on 2026-10-18 (same prices as the printed offer sheet)
+  const quickJobs = [
+    { name: 'Facebook Page Tune-Up', what: 'Cover and profile images from your photos, hours, services, service area, a Call button and a pinned post. Done through Facebook\'s own access tools, never your password.', price: '$149', note: 'once' },
+    { name: 'Review Engine', what: 'A review QR card for the counter, a link to text customers, draft replies you approve and a short monthly report.', price: '$49', note: 'a month, no lock-in' },
+    { name: 'Missed-call text-back', what: 'Mobile callers you miss get an instant text saying you\'ll call back. Set up on your own Tradie Texts account (their monthly fee is paid to them).', price: '$149', note: 'setup' },
+    { name: 'Website Rescue', what: 'A broken button, a wrong number or an out-of-date page on the site you already have, fixed at a price agreed before I start. Optional care: $49 a month.', price: '$149', note: 'per fix' },
+  ]
+
   return (
     <section id="pricing" ref={ref} className="relative py-14 sm:py-20 px-6 sm:px-10 lg:px-16 bg-background overflow-hidden">
       <div className="absolute -top-20 right-0 h-72 w-72 rounded-full bg-accent/8 blur-3xl pointer-events-none" />
@@ -1644,6 +1652,26 @@ function Packages() {
               </a>
             </article>
           ))}
+        </div>
+
+        <div className={`mt-10 rounded-5xl bg-surface border border-divider p-7 sm:p-9 transition-all duration-700 ease-out ${visible ? 'opacity-100' : 'opacity-0'}`}>
+          <h3 className="font-display font-bold text-2xl text-ink">Quick jobs, fixed prices</h3>
+          <p className="text-sm text-muted mt-1.5">Small, fast fixes for the bits of your business online that bring in calls.</p>
+          <ul className="divide-y divide-divider mt-5">
+            {quickJobs.map((j) => (
+              <li key={j.name} className="py-4 grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-1 sm:gap-8 sm:items-baseline">
+                <div>
+                  <p className="font-display font-semibold text-ink">{j.name}</p>
+                  <p className="text-sm text-muted leading-relaxed mt-0.5">{j.what}</p>
+                </div>
+                <p className="whitespace-nowrap">
+                  <span className="font-display font-extrabold text-xl text-primary">{j.price}</span>{' '}
+                  <span className="text-xs font-mono uppercase tracking-wider text-muted">{j.note}</span>
+                </p>
+              </li>
+            ))}
+          </ul>
+          <p className="text-sm text-ink/80 mt-5">Move to Get Found within 60 days and what you paid for a Google or Facebook job comes off its $299 setup.</p>
         </div>
       </div>
     </section>
