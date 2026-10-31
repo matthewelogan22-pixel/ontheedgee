@@ -6,6 +6,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy.jsx'
 import Terms from './pages/Terms.jsx'
 import NotFound from './pages/NotFound.jsx'
 import Refer from './pages/Refer.jsx'
+import FreeSample from './pages/FreeSample.jsx'
 import './index.css'
 
 createRoot(document.getElementById('root')).render(
@@ -16,6 +17,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="/refer" element={<Refer />} />
+        <Route path="/free-sample" element={<FreeSample />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
